@@ -1,15 +1,14 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <div>
-        <main>
-            <slot />
-        </main>
-    </div>
+	<div class=" font-metroSans">
+		<NavbarMain />
+
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</div>
 </template>
-
-
 
 <style scoped></style>
