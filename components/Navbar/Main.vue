@@ -8,7 +8,7 @@
 		{ name: 'Our Services', link: '/' },
 		{ name: 'FAQs', link: '/faqs' },
 		{ name: 'About Us', link: '/about' },
-		{ name: 'Contact Us', link: '/' },
+		{ name: 'Contact Us', link: '/contact-us' },
 	]);
 </script>
 

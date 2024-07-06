@@ -3,12 +3,6 @@
 
 	const navItems = ref([
 		{ name: 'Home', to: '/' },
-		{ name: 'Buy Airtime', to: '/services/airtime/0' },
-		{ name: 'Buy Data', to: '/services/data/0' },
-		{ name: 'Buy Internet', to: '/services/internet/0' },
-		{ name: 'Buy Education', to: '/services/education/0' },
-		{ name: 'Top Betting', to: '/services/betting/0' },
-		{ name: 'Buy Electricity', to: '/services/electricity/0' },
 	]);
 
   const load = ref(true)

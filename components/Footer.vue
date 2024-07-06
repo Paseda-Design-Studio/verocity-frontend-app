@@ -8,7 +8,7 @@
 	const companyLinks = ref<FooterLinkProps[]>([
 		{ name: 'About Us', link: '/about' },
 		{ name: 'Career', link: '/' },
-		{ name: 'Contact', link: '/contact' },
+		{ name: 'Contact', link: '/contact-us' },
 	]);
 
 	const resourceLinks = ref<FooterLinkProps[]>([
