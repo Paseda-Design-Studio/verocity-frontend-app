@@ -6,9 +6,9 @@
 	}
 
 	const companyLinks = ref<FooterLinkProps[]>([
-		{ name: 'About Us', link: '/' },
+		{ name: 'About Us', link: '/about' },
 		{ name: 'Career', link: '/' },
-		{ name: 'Contact', link: '/' },
+		{ name: 'Contact', link: '/contact' },
 	]);
 
 	const resourceLinks = ref<FooterLinkProps[]>([
@@ -17,7 +17,7 @@
 	]);
 
 	const legalLinks = ref<FooterLinkProps[]>([
-		{ name: 'Terms', link: '/' },
+		{ name: 'Terms', link: '/terms-and-conditions' },
 		{ name: 'Privacy', link: '/' },
 		{ name: 'Licenses', link: '/' },
 	]);

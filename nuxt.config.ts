@@ -76,7 +76,7 @@ export default defineNuxtConfig({
 						'primary-800': 'var(--primary-800)',
 						'primary-900': 'var(--primary-900)',
 						'primary-950': 'var(--primary-950))',
-
+						'text-color': '#49494B',
 						secondary: 'var(--secondary)',
 						'secondary-50': 'var(--secondary-50)',
 						'secondary-100': 'var(--secondary-100)',
