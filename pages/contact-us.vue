@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import InputText from 'primevue/inputtext';
+	import Textarea from 'primevue/textarea';
 </script>
 
 <template>
@@ -68,11 +69,56 @@
 							action=""
 							method="post"
 						>
-							<InputText
-								type="text"
-								v-model="value"
-								variant="filled"
-							/>
+							<div class="flex flex-col gap-1 mb-6">
+								<label for="name">Name</label>
+								<InputText
+									id="name"
+									placeholder="Name"
+									aria-describedby="name"
+								/>
+							</div>
+
+							<div class="flex gap-4 mb-6">
+								<div class="flex flex-col gap-1 flex-grow">
+									<label for="email">Email Address</label>
+									<InputText
+										id="email"
+										placeholder="Email Address"
+										aria-describedby="email"
+									/>
+								</div>
+
+								<div class="flex flex-col gap-1 flex-grow">
+									<label for="phone">Phone Number</label>
+									<InputText
+										id="phone"
+										placeholder="Phone Number"
+										aria-describedby="phone"
+									/>
+								</div>
+							</div>
+
+							<div class="flex flex-col gap-1 mb-6">
+								<label for="company">Company</label>
+								<InputText
+									id="company"
+									placeholder="Name of Company"
+									aria-describedby="company"
+								/>
+							</div>
+
+							<div class="flex flex-col gap-1 mb-6">
+								<label for="message">Message</label>
+								<Textarea
+									variant="filled"
+									rows="5"
+									cols="30"
+								/>
+							</div>
+
+							<div class="flex">
+								<Button class="bg-primary text-white">Contact Us </Button>
+							</div>
 						</form>
 					</div>
 				</div>

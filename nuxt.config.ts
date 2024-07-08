@@ -2,6 +2,10 @@ import * as path from 'path';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	app: {
+		layoutTransition: { name: 'slide-fade-left', mode: 'out-in' },
+		//pageTransition:  { name: 'slide-fade-left', mode: 'out-in' }
+	},
 	devtools: { enabled: true },
 	modules: [
 		'@nuxtjs/tailwindcss',
