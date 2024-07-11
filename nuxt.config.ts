@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 					'Noto+Sans': true,
 					'Open+Sans': true,
 					'Metro+Sans': true,
-				},
+				}, 
 			},
 		],
 	],

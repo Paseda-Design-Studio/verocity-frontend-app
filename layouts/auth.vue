@@ -2,12 +2,7 @@
 
 <template>
 	<div class="font-metroSans">
-		<NavbarMain />
-
-		<main>
-			<slot />
-		</main>
-		<Footer />
+		<slot />
 	</div>
 </template>
 

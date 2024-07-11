@@ -31,25 +31,24 @@
 
 				<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 					<div class="gap-4 hidden md:flex">
-						<NuxtLink to="/">
+						<NuxtLink to="/auth/login">
 							<Button
 								label="Login"
-								class="py-2.5 px-5 border-secondary text-secondary"
+								class="py-2.5 px-5 border-secondary text-secondary focus:outline-none"
 								outlined
 							/>
 						</NuxtLink>
 
-						<NuxtLink to="/">
+						<NuxtLink to="/auth/register">
 							<Button
 								label="Sign Up"
-								class="py-2.5 px-5 text-white"
+								class="py-2.5 px-5 text-white focus:outline-none"
 							/>
 						</NuxtLink>
 					</div>
 
 					<Button
-						class="py-1 px-2 bg-transparent text-secondary flex md:hidden"
-						
+						class="py-1 px-2 bg-transparent text-secondary flex md:hidden focus:outline-none"
 					>
 						<span class="sr-only">Open main menu</span>
 						<svg
@@ -94,10 +93,7 @@
 		</nav>
 
 		<NavbarMobile />
-
 	</header>
-
-
 </template>
 
 <style scoped></style>
