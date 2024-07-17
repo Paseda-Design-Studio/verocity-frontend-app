@@ -2,7 +2,7 @@
 <template>
 	<section class="container mx-auto py-10 sm:py-24">
 		<div
-			class="relative bg-center bg-no-repeat get-quote overflow-hidden px-6 rounded-lg sm:px-16 lg:flex lg:px-24 lg:pt-0"
+			class="relative bg-center bg-no-repeat get-quote overflow-hidden px-6 rounded-2xl sm:px-16 lg:flex lg:px-24 lg:pt-0"
 		>
 			<div
 				class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-left"
@@ -17,7 +17,7 @@
 				>
 					<Button
 						label="Get quote"
-						class="text-white bg-primary-600 py-3 px-5"
+						class="bg-primary-600 text-white focus:outline-none py-3 px-5 rounded-md"
 					/>
 				</div>
 			</div>

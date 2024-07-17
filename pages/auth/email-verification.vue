@@ -12,8 +12,9 @@
 			class="w-full m-0 bg-gray-100 shadow sm:rounded-lg flex gap-10 items-center justify-center flex-1 p-10"
 		>
 			<div
-				class="max-w-lg flex-1 mt-8 flex bg-white py-8 px-6 flex-col rounded-lg"
+				class="max-w-lg flex-1 mt-8 flex bg-white py-8 px-6 flex-col relative rounded-lg"
 			>
+				<AuthBackArrow />
 				<div class="flex flex-col items-center gap-2 mb-10">
 					<h3 class="text-2xl text-gray-800 font-semibold">
 						Confirm email address
@@ -26,21 +27,22 @@
 				<form
 					action=""
 					method="post"
-          class="mb-10"
+					class="mb-10"
 				>
 					<div class="flex justify-center mb-6">
 						<InputOtp integerOnly />
 					</div>
 
 					<div class="flex justify-center">
-						<Button class="bg-primary text-white focus:outline-none"
+						<Button
+							class="bg-primary-600 text-white focus:outline-none py-3 px-5 rounded-md"
 							>Verify email
 						</Button>
 					</div>
 				</form>
 
 				<div class="flex mt-5 justify-center">
-					<p class="text-base font-normal text-gray-700">
+					<p class="text-sm font-normal text-gray-700">
 						Don’t receive code?
 						<NuxtLink
 							to="/auth/register"

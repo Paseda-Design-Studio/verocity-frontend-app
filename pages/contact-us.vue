@@ -70,7 +70,11 @@
 							method="post"
 						>
 							<div class="flex flex-col gap-1 mb-6">
-								<label for="name">Name</label>
+								<label
+									class="text-sm"
+									for="name"
+									>Name</label
+								>
 								<InputText
 									id="name"
 									placeholder="Name"
@@ -80,7 +84,11 @@
 
 							<div class="flex gap-4 mb-6">
 								<div class="flex flex-col gap-1 flex-grow">
-									<label for="email">Email Address</label>
+									<label
+										class="text-sm"
+										for="email"
+										>Email Address</label
+									>
 									<InputText
 										id="email"
 										placeholder="Email Address"
@@ -89,7 +97,11 @@
 								</div>
 
 								<div class="flex flex-col gap-1 flex-grow">
-									<label for="phone">Phone Number</label>
+									<label
+										class="text-sm"
+										for="phone"
+										>Phone Number</label
+									>
 									<InputText
 										id="phone"
 										placeholder="Phone Number"
@@ -99,7 +111,11 @@
 							</div>
 
 							<div class="flex flex-col gap-1 mb-6">
-								<label for="company">Company</label>
+								<label
+									class="text-sm"
+									for="company"
+									>Company</label
+								>
 								<InputText
 									id="company"
 									placeholder="Name of Company"
@@ -108,7 +124,11 @@
 							</div>
 
 							<div class="flex flex-col gap-1 mb-6">
-								<label for="message">Message</label>
+								<label
+									class="text-sm"
+									for="message"
+									>Message</label
+								>
 								<Textarea
 									variant="filled"
 									rows="5"
@@ -117,7 +137,10 @@
 							</div>
 
 							<div class="flex">
-								<Button class="bg-primary text-white">Contact Us </Button>
+								<Button
+									class="bg-primary-600 text-white focus:outline-none py-3 px-5 rounded-md"
+									>Contact Us
+								</Button>
 							</div>
 						</form>
 					</div>

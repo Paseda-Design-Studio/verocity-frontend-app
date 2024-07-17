@@ -34,7 +34,7 @@
 						<NuxtLink to="/auth/login">
 							<Button
 								label="Login"
-								class="py-2.5 px-5 border-secondary text-secondary focus:outline-none"
+								class="py-3 px-5 border-secondary rounded-md text-secondary focus:outline-none"
 								outlined
 							/>
 						</NuxtLink>
@@ -42,7 +42,7 @@
 						<NuxtLink to="/auth/register">
 							<Button
 								label="Sign Up"
-								class="py-2.5 px-5 text-white focus:outline-none"
+								class="bg-primary-600 text-white rounded-md focus:outline-none py-3 px-5"
 							/>
 						</NuxtLink>
 					</div>
@@ -82,7 +82,7 @@
 						>
 							<NuxtLink
 								:to="nav.link"
-								class="block py-2 px-2 text-gray-900 text-lg md:dark:text-gray-200"
+								class="block py-3 px-2 rounded-md focus:outline-none text-gray-900 text-lg md:dark:text-gray-200"
 								aria-current="page"
 								>{{ nav.name }}</NuxtLink
 							>
