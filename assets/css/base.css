@@ -55,3 +55,9 @@
 	font-family: 'Metrosans';
 	src: url('/font/MetroSans-Regular.ttf');
 }
+
+input,
+textarea {
+	background-color: #f7f9fc !important;
+	border-color: #f2f4f7 !important;
+}

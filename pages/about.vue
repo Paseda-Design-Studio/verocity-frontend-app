@@ -91,7 +91,7 @@
 							control the flow of goods under our charge.
 						</p>
 
-						<Button class="inline-block mt-10 px-5">
+						<Button class="inline-block mt-10 bg-primary-600 text-white focus:outline-none py-3 px-5 rounded-md">
 							<NuxtLink
 								class="flex gap-2 text-white"
 								to="/"
