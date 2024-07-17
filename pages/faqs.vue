@@ -8,8 +8,8 @@
 
 <template>
 	<div>
-		<section class="bg-primary-600 py-10 sm:py-24">
-			<div class="container">
+		<section class="bg-primary-600 py-10 sm:py-24 relative">
+			<div class="container relative z-20">
 				<div class="flex items-center flex-col justify-center">
 					<h2
 						class="text-2xl font-semibold tracking-tight text-white sm:text-4xl"
@@ -21,6 +21,7 @@
 					</p>
 				</div>
 			</div>
+			<div class="absolute inset-0 bg bg-center z-10 bg-[url('/faq-map.png')]"></div>
 		</section>
 
 		<section class="bg-white py-10 sm:py-24">

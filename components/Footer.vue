@@ -21,6 +21,7 @@
 		{ name: 'Privacy', link: '/' },
 		{ name: 'Licenses', link: '/' },
 	]);
+	
 </script>
 
 <template>

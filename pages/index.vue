@@ -17,19 +17,17 @@
 					Let us handle your logistics, so you can focus on what matters most.
 				</p>
 
-				<div
-					class="flex flex-col gap-2 space-y-4 sm:flex-row sm:justify-center sm:space-y-0"
-				>
+				<div class="flex gap-2 justify-center">
 					<InputText
 						type="text"
 						size="large"
 						placeholder="Input tracking ID"
-						class=""
+						class="w-1/2"
 					/>
 
 					<Button
 						label="Track"
-						class="py-2.5 px-5"
+						class="bg-primary-600 text-white focus:outline-none py-3 px-5 rounded-md"
 					/>
 				</div>
 			</div>
@@ -143,9 +141,11 @@
 
 						<NuxtLink to="/">
 							<Button
-								label="About Us"
-								class="uppercase text-white font-normal"
-							/>
+								class="bg-primary-600 uppercase flex gap-2 font-light text-white focus:outline-none py-3 px-5 rounded-md"
+							>
+								<span>About Us</span>
+								<IconsArrowRight />
+							</Button>
 						</NuxtLink>
 					</div>
 				</div>
@@ -196,9 +196,7 @@
 						</div>
 					</div>
 
-					<div class="flex flex-col gap-10">
-						
-					</div>
+					<div class="flex flex-col gap-10"></div>
 				</div>
 			</div>
 		</section>

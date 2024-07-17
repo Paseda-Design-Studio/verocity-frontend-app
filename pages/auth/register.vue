@@ -13,8 +13,9 @@
 		>
 			<AuthSide color="secondary" />
 
-			<div class="flex-1">
-				<div class="max-w-xl mt-8 flex flex-col">
+			<div class="flex-1 relative">
+				<AuthBackArrow/>
+				<div class="max-w-md mt-8 flex flex-col">
 					<div class="flex flex-col gap-2 mb-10">
 						<h3 class="text-2xl text-gray-800 font-semibold">Sign in</h3>
 						<p class="text-base font-normal text-gray-700">
@@ -33,8 +34,8 @@
 									value="individual"
 								/>
 								<label
+									class="text-sm ml-2"
 									for="individual"
-									class="ml-2"
 									>Individual</label
 								>
 							</div>
@@ -45,34 +46,48 @@
 									value="e-commerce"
 								/>
 								<label
+									class="text-sm ml-2"
 									for="e-commerce"
-									class="ml-2"
 									>E-commerce</label
 								>
 							</div>
 						</div>
 						<div class="flex mb-6 gap-4">
-							<div class="flex flex-col flex-grow gap-1">
-								<label for="first_name">First Name</label>
+							<div class="flex flex-col gap-1">
+								<label
+									class="text-sm"
+									for="first_name"
+									>First Name</label
+								>
 								<InputText
 									id="first_name"
 									placeholder="First Name"
 									aria-describedby="first_name"
+									class="w-full"
 								/>
 							</div>
 
-							<div class="flex flex-col flex-grow gap-1">
-								<label for="first_name">Last Name</label>
+							<div class="flex flex-col gap-1">
+								<label
+									class="text-sm"
+									for="first_name"
+									>Last Name</label
+								>
 								<InputText
 									id="last_name"
 									placeholder="Last Name"
 									aria-describedby="last_name"
+									class="w-full"
 								/>
 							</div>
 						</div>
 
 						<div class="flex flex-col gap-1 mb-6">
-							<label for="name">Email address</label>
+							<label
+								class="text-sm"
+								for="name"
+								>Email address</label
+							>
 							<InputText
 								id="email"
 								placeholder="Email address"
@@ -81,9 +96,12 @@
 						</div>
 
 						<div class="flex flex-col gap-1 mb-6">
-							<label for="phone">Phone Number</label>
+							<label
+								class="text-sm"
+								for="phone"
+								>Phone Number</label
+							>
 							<InputNumber
-								v-model="value1"
 								placeholder="Phone Number"
 								inputId="phone_number"
 								fluid
@@ -91,7 +109,11 @@
 						</div>
 
 						<div class="flex flex-col gap-1 mb-6">
-							<label for="password">Password</label>
+							<label
+								class="text-sm"
+								for="password"
+								>Password</label
+							>
 							<Password
 								id="password"
 								placeholder="Enter password"
@@ -100,7 +122,11 @@
 						</div>
 
 						<div class="flex flex-col gap-1 mb-6">
-							<label for="password">Confirm Password</label>
+							<label
+								class="text-sm"
+								for="password"
+								>Confirm Password</label
+							>
 							<Password
 								id="confirm_password"
 								placeholder="Enter password"
@@ -109,14 +135,15 @@
 						</div>
 
 						<div class="flex">
-							<Button class="bg-primary text-white focus:outline-none"
+							<Button
+								class="bg-primary-600 text-white focus:outline-none py-3 px-5 rounded-md"
 								>Sign Up
 							</Button>
 						</div>
 					</form>
 
 					<div class="flex mt-5">
-						<p class="text-base font-normal text-gray-700">
+						<p class="text-sm font-normal text-gray-700">
 							Already have an account?
 							<NuxtLink
 								to="/auth/login"

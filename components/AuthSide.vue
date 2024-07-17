@@ -19,22 +19,26 @@
 </script>
 
 <template>
-	<div
-		class="flex-col justify-between h-full p-4 sm:p-6 rounded hidden lg:flex"
+	<section
+		class="flex-col justify-between h-full p-4 sm:p-6 rounded-2xl hidden relative lg:flex"
 		:class="props.color === 'primary' ? 'bg-primary-600' : 'bg-secondary-600'"
 	>
-		<div class="logo flex">
-			<img
-				:src="
-					props.color === 'primary' ? '/logo/logo.png' : '/logo/footer-logo.png'
-				"
-				class="h-12"
-				alt="Company Logo"
-			/>
+		<div class="logo flex relative z-30">
+			<RouterLink to="/">
+				<img
+					:src="
+						props.color === 'primary'
+							? '/logo/logo.png'
+							: '/logo/footer-logo.png'
+					"
+					class="h-12"
+					alt="Company Logo"
+				/>
+			</RouterLink>
 		</div>
 
 		<!-- content -->
-		<div class="auth-content flex flex-col gap-2 max-w-sm">
+		<div class="auth-content flex flex-col gap-2 max-w-sm relative z-30">
 			<h3 class="text-2xl text-white font-semibold">
 				Start your journey with us
 			</h3>
@@ -45,7 +49,7 @@
 		</div>
 
 		<!-- testimonial -->
-		<div class="auth-content flex flex-col gap-2 max-w-sm">
+		<div class="auth-content flex relative z-30 flex-col gap-2 max-w-sm">
 			<Carousel
 				:value="testimonies"
 				:numVisible="1"
@@ -83,7 +87,9 @@
 				</template>
 			</Carousel>
 		</div>
-	</div>
+
+		<div class="absolute inset-0 bg-cover bg-[url('/auth-map.png')]"></div>
+	</section>
 </template>
 
 <style></style>
