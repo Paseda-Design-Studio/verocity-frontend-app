@@ -31,7 +31,7 @@
 							? '/logo/logo.png'
 							: '/logo/footer-logo.png'
 					"
-					class="h-12"
+					class="w-[7.5rem] h-auto"
 					alt="Company Logo"
 				/>
 			</RouterLink>
