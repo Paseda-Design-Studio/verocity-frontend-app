@@ -20,21 +20,21 @@
 						<img
 							:src="newLogo"
 							alt="Company Logo"
-							class="flex"
-							style="width: 150px"
+							class="flex w-5 h-auto"
+							
 						/>
 					</NuxtLink>
 					<!-- <span class="inline-flex items-center gap-2">
             <span class="font-semibold text-2xl text-primary">EasiePoint</span>
           </span> -->
 					<span>
-						<Button
+						<button
 							type="button"
 							@click="closeCallback"
 							icon="fas fa-times"
 							rounded
 							outlined
-						></Button>
+						></button>
 					</span>
 				</div>
 				<div class="overflow-y-auto">
