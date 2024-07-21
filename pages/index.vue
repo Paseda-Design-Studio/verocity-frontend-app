@@ -50,7 +50,7 @@
 				<div
 					class="mt-10 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3"
 				>
-					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8">
+					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-2xl">
 						<div class="flex justify-center items-center">
 							<img
 								src="/flexible-icon.png"
@@ -67,7 +67,7 @@
 						</div>
 					</div>
 
-					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8">
+					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-2xl">
 						<div class="flex justify-center items-center">
 							<img
 								src="/flexible-icon.png"
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 
-					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8">
+					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-2xl">
 						<div class="flex justify-center items-center">
 							<img
 								src="/flexible-icon.png"
@@ -171,7 +171,7 @@
 
 						<div class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-2">
 							<div
-								class="flex flex-col bg-primary-600 rounded text-white gap-2 py-8 px-6"
+								class="flex flex-col bg-primary-600 rounded text-white gap-2 py-8 px-6 transform transition duration-200 hover:scale-110 hover:shadow-2xl"
 							>
 								<div class="flex items-center">
 									<IconsSmile />
@@ -183,7 +183,7 @@
 							</div>
 
 							<div
-								class="flex flex-col bg-secondary-600 rounded text-white gap-2 py-8 px-6"
+								class="flex flex-col bg-secondary-600 rounded text-white gap-2 py-8 px-6 transform transition duration-200 hover:scale-110 hover:shadow-2xl"
 							>
 								<div class="flex items-center">
 									<IconsSmile />
