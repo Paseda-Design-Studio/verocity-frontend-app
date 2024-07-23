@@ -20,7 +20,7 @@
 
 <template>
 	<header>
-		<nav class="bg-white border-gray-200 dark:bg-gray-900 md:``````````fixed top-0 w-full z-50">
+		<nav class="bg-white border-gray-200 md:fixed top-0 w-full z-50">
 			<div
 				class="lg:container flex flex-wrap items-center justify-between mx-auto p-4"
 			>
