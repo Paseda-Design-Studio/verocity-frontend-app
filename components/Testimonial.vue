@@ -50,7 +50,7 @@
 						severity="contrast"
 						size="small"
 					>
-						<IconsArrowRight />
+						<IconsArrowLeft />
 					</Button>
 
 					<Button
@@ -60,7 +60,7 @@
 						severity="contrast"
 						size="small"
 					>
-						<IconsArrowLeft
+						<IconsArrowRight
 					/></Button>
 				</div>
 			</div>

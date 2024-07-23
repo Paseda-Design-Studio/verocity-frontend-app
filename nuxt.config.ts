@@ -7,22 +7,17 @@ export default defineNuxtConfig({
 		pageTransition: { name: 'slide-fade-left', mode: 'out-in' },
 	},
 	devtools: { enabled: true },
-	modules: [
-		'@nuxtjs/tailwindcss',
-		'nuxt-primevue',
-		'@pinia/nuxt',
-		[
-			'@nuxtjs/google-fonts',
-			{
-				families: {
-					Inter: [400, 700],
-					'Noto+Sans': true,
-					'Open+Sans': true,
-					'Metro+Sans': true,
-				},
-			},
-		],
-	],
+	modules: ['@nuxtjs/tailwindcss', 'nuxt-primevue', '@pinia/nuxt', [
+        '@nuxtjs/google-fonts',
+        {
+            families: {
+                Inter: [400, 700],
+                'Noto+Sans': true,
+                'Open+Sans': true,
+                'Metro+Sans': true,
+            },
+        },
+    ], "@nuxt/icon"],
 	css: ['~/assets/css/base.css'],
 	imports: {
 		dirs: ['stores'],
