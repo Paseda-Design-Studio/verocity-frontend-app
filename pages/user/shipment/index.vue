@@ -56,7 +56,7 @@
 				</div>
 			</div>
 
-			<div class="content flex flex-col border border-gray-500 rounded-lg p-6">
+			<div class="content flex flex-col border border-gray-300 rounded-lg p-6">
 				<ShipmentCard
 					v-for="(item, index) in listItems"
 					:key="index"

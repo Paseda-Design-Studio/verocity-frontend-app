@@ -12,18 +12,20 @@
 		status: {
 			type: String,
 		},
-		date: {
+		date: {  
 			type: String,
 		},
 	});
 </script>
 
 <template>
-	<div class="flex flex-col gap-2 border-b border-gray-600 py-6">
+	<div class="flex flex-col gap-4 border-b border-gray-300 py-6">
 		<div class="header flex justify-between items-center w-full">
+			<!-- track ID -->
 			<span class="flex text-gray-900 text-2xl tracking-tight font-bold">{{
 				props.trackID
 			}}</span>
+			<!-- Tag -->
 			<Tag
 				severity="warn"
 				:value="props.status"
@@ -36,9 +38,9 @@
 			></Tag>
 		</div>
 
-		<div class="body flex gap-2 flex-col">
+		<div class="body flex gap-4 flex-col relative">
 			<div class="flex justify-between items-center w-full relative">
-				<div class="flex gap-4">
+				<div class="flex gap-4 items-center">
 					<img
 						src="/departure-icon.png"
 						alt="departure icon"
@@ -51,9 +53,11 @@
 					>Shipping date: <span>{{ props.date }}</span></span
 				>
 			</div>
+			<!-- vertical line -->
+			<div class="h-4 flex items-center top-[21px] left-2 absolute border-l-2 border-gray-400"></div>
 
 			<div class="flex justify-between items-center w-full">
-				<div class="flex gap-4">
+				<div class="flex gap-4 items-center">
 					<img
 						src="/destination-icon.png"
 						alt="departure icon"
@@ -63,7 +67,7 @@
 					}}</span>
 				</div>
 
-				<NuxtLink class="flex text-[#F0522C] text-base font-medium underline"
+				<NuxtLink :to="{ name: 'user-shipment-id', params: { id: 123 } }" class="flex text-[#F0522C] text-base font-medium underline"
 					>View Details</NuxtLink
 				>
 			</div>

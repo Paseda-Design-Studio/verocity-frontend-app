@@ -74,3 +74,8 @@ textarea {
 	background-color: #f7f9fc !important;
 	border-color: #f2f4f7 !important;
 }
+
+input,
+input::placeholder {
+	@apply text-sm;
+}
