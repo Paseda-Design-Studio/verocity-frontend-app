@@ -51,3 +51,11 @@ declare interface testimonyProp {
   designation: string;
   icon?: string;
 }
+
+declare interface shipmentProp {
+  trackID: string;
+  departure: string;
+  destination: string;
+  status: string;
+	date: string
+}
