@@ -1,11 +1,12 @@
 <script lang="ts" setup>
+	import Menu from 'primevue/menu';
+
 	interface navItems {
 		name: string;
 		link: string;
 	}
 
 	const navs = ref<navItems[]>([
-		{ name: 'Our Services', link: '/' },
 		{ name: 'FAQs', link: '/faqs' },
 		{ name: 'About Us', link: '/about' },
 		{ name: 'Contact Us', link: '/contact-us' },
@@ -13,14 +14,60 @@
 
 	const showDrawer = ref<boolean>(false);
 
+	const isLoggedIn = ref<boolean>(true);
+
 	const toggleDrawer = () => {
 		showDrawer.value = !showDrawer.value;
+	};
+
+	const menu = ref();
+	const service = ref();
+
+	const items = ref([
+		{
+			items: [
+				{
+					label: 'Refresh',
+					icon: 'pi pi-refresh',
+				},
+				{
+					label: 'Export',
+					icon: 'pi pi-upload',
+				},
+			],
+		},
+	]);
+
+	const ourServiceMenu = ref([
+		{
+			items: [
+				{
+					label: 'Ship now',
+				},
+				{
+					label: 'Oversea shipping',
+				},
+				{
+					label: 'Get A Quote',
+				},
+			],
+		},
+	]);
+
+	const toggle = (event: any) => {
+		menu.value.toggle(event);
+	};
+
+	const toggleServiceMenu = (event: any) => {
+		service.value.toggle(event);
 	};
 </script>
 
 <template>
 	<header>
-		<nav class="bg-white border-gray-200 dark:bg-gray-900 md:``````````fixed top-0 w-full z-50">
+		<nav
+			class="bg-white border-gray-200 dark:bg-gray-900 md:``````````fixed top-0 w-full z-50"
+		>
 			<div
 				class="lg:container flex flex-wrap items-center justify-between mx-auto p-4"
 			>
@@ -35,8 +82,45 @@
 					/>
 				</NuxtLink>
 
-				<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-					<div class="gap-4 hidden md:flex">
+				<div
+					class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-4"
+				>
+					<template v-if="isLoggedIn">
+						<div class="hidden md:flex justify-center items-center gap-4">
+							<Button
+								type="button"
+								@click="toggle"
+								aria-haspopup="true"
+								size="small"
+								severity="secondary"
+								text
+								aria-controls="overlay_menu"
+							>
+								<img
+									src="/icons/email-outline.svg"
+									alt=""
+								/>
+							</Button>
+							<Menu
+								ref="menu"
+								id="overlay_menu"
+								:model="items"
+								:popup="true"
+							/>
+						</div>
+						<div class="flex items-center justify-center gap-2">
+							<Avatar
+								image="/testimony-icon.png"
+								shape="circle"
+							/>
+							<span>Kate Sawyer</span>
+						</div>
+					</template>
+
+					<div
+						v-else
+						class="gap-4 hidden md:flex"
+					>
 						<NuxtLink to="/auth/login">
 							<Button
 								label="Login"
@@ -83,6 +167,21 @@
 					<ul
 						class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
 					>
+						<li>
+							<a
+								href="#"
+								@click="toggleServiceMenu"
+								class="block py-3 px-2 rounded-md focus:outline-none text-gray-900 text-lg md:dark:text-gray-200 nav__link"
+								aria-current="page"
+								><span>Our services</span></a
+							>
+							<Menu
+								ref="service"
+								id="overlay_menu"
+								:model="ourServiceMenu"
+								:popup="true"
+							/>
+						</li>
 						<li
 							v-for="nav in navs"
 							:key="nav.name"
@@ -106,7 +205,7 @@
 	</header>
 </template>
 
-<style scoped>
+<style>
 	.nav__link span {
 		position: relative;
 		transition: margin 0.4s;
@@ -130,5 +229,14 @@
 
 	.nav__link:hover span::after {
 		width: 100%;
+	}
+
+	#overlay_menu {
+		top: 84px !important;
+		padding: 0;
+	}
+
+	#overlay_menu_0 {
+		display: none !important;
 	}
 </style>

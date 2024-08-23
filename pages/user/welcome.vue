@@ -23,7 +23,7 @@
 <template>
 	<section class="bg-primary-600 py-10 sm:py-24 relative">
 		<div class="container relative z-20">
-			<div class="flex items-center flex-col justify-center">
+			<div class="flex items-center flex-col justify-center max-w-6xl mx-auto">
 				<h2
 					class="text-2xl font-semibold tracking-tight text-white sm:text-4xl"
 				>
@@ -72,7 +72,7 @@
 		<div class="container">
 			<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 				<div
-					class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-2xl"
+					class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-lg"
 					v-for="item in lists"
 					:key="item.title"
 				>
