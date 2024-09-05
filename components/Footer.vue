@@ -124,7 +124,7 @@ onUnmounted(() => {
 	right: 1rem;
 	bottom: -50%;
 	font-size: 1.25rem;
-	background-color: #ba1c46;
+	background-color: #ef532b;
 	padding: 8px;
 	display: inline-flex;
 	z-index: 10;
