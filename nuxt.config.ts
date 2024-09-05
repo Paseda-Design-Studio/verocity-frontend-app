@@ -1,4 +1,4 @@
-import * as path from 'path';
+import { resolve } from "path";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -22,6 +22,10 @@ export default defineNuxtConfig({
 	imports: {
 		dirs: ['stores'],
 	},
+	alias: {
+		api: resolve(__dirname, "./api"),
+		types: resolve(__dirname, "./types"),
+	  },
 
 	primevue: {
 		options: {

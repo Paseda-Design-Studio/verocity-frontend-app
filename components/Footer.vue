@@ -124,10 +124,10 @@ onUnmounted(() => {
 	right: 1rem;
 	bottom: -50%;
 	font-size: 1.25rem;
-	background-color: #ba1c46;
+	background-color: #ef532b;
 	padding: 8px;
 	display: inline-flex;
-	z-index: 999;
+	z-index: 10;
 	transition: bottom 0.4s ease-in-out, transform 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
@@ -137,6 +137,6 @@ onUnmounted(() => {
 
 /* Show Scroll Up */
 .show-scroll {
-	bottom: 10rem;
+	bottom: 8rem;
 }
 </style>

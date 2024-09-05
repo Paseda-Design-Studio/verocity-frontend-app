@@ -5,7 +5,7 @@
 		{
 			title: 'Ship now',
 			description:
-				'Airfreight is fast-moving, challenging and constantly changing – it’s the nature of the business.',
+				"Airfreight is fast-moving, challenging and constantly changing - it's the nature of the business.",
 		},
 		{
 			title: 'Oversea shipping',
