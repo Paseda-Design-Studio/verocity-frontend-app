@@ -20,3 +20,22 @@ export const carouselResponsiveOptions = [
 		numScroll: 1,
 	},
 ];
+
+
+export const sidebarLinks = [
+  {
+    imgURL: 'icons/home.svg',
+    route: '/dashboard',
+    label: 'Dashboard'
+  },
+  {
+    imgURL: './icons/dollar-circle.svg',
+    route: '/my-plugins',
+    label: 'My Plugins'
+  },
+  {
+    imgURL: './icons/transaction.svg',
+    route: '/change-password',
+    label: 'Change Password'
+  }
+]

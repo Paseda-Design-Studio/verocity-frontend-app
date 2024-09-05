@@ -11,7 +11,7 @@
 <template>
 	<section class="bg-primary-600 ch-20 relative py-10 sm:py-24">
 		<div class="container relative z-20">
-			<div class="flex flex-col h-full justify-between">
+			<div class="flex items-centers flex-col justify-center max-w-6xl mx-auto">
 				<div class="flex mb-6">
 					<p
 						class="text-xl leading-8 font-normal text-white uppercase"
@@ -42,7 +42,7 @@
 
 	<section class="relative overflow-hidden py-10 sm:py-24">
 		<div class="container">
-			<div class="max-w-4xl mx-auto">
+			<div class="max-w-3xl mx-auto">
 				<form
 					action=""
 					method="post"
