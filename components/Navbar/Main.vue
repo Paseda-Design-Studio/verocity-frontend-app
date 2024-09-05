@@ -65,13 +65,7 @@
 
 <template>
 	<header>
-<<<<<<< HEAD
 		<nav class="bg-white border-gray-200 md:fixed top-0 w-full z-50">
-=======
-		<nav
-			class="bg-white border-gray-200 dark:bg-gray-900 md:``````````fixed top-0 w-full z-50"
-		>
->>>>>>> b4e0666c6c8f585a0fddcf02be1147d09a1a1d03
 			<div
 				class="lg:container flex flex-wrap items-center justify-between mx-auto p-4"
 			>
