@@ -21,21 +21,40 @@ export const carouselResponsiveOptions = [
 	},
 ];
 
-
 export const sidebarLinks = [
-  {
-    imgURL: 'icons/home.svg',
-    route: '/dashboard',
-    label: 'Dashboard'
-  },
-  {
-    imgURL: './icons/dollar-circle.svg',
-    route: '/my-plugins',
-    label: 'My Plugins'
-  },
-  {
-    imgURL: './icons/transaction.svg',
-    route: '/change-password',
-    label: 'Change Password'
-  }
-]
+	{
+		imgURL: '/icons/dashboard.svg',
+		route: '/dashboard',
+		label: 'Dashboard',
+	},
+	{
+		imgURL: '/icons/tracking.svg',
+		route: '/tracking',
+		label: 'Tracking',
+	},
+	{
+		imgURL: '/icons/shipment.svg',
+		route: '/shipment',
+		label: 'Shipment Management',
+	},
+	{
+		imgURL: '/icons/customer.svg',
+		route: '/customer',
+		label: 'Customer',
+	},
+	{
+		imgURL: '/icons/setting.svg',
+		route: '/setting',
+		label: 'Settings',
+	},
+];
+
+export const formatAmount = (amount: number) => {
+	const formatter = new Intl.NumberFormat('en-NG', {
+		style: 'currency',
+		currency: 'NGN',
+		minimumFractionDigits: 2,
+	});
+
+	return formatter.format(amount);
+};
