@@ -14,7 +14,7 @@
 
 	const showDrawer = ref<boolean>(false);
 
-	const isLoggedIn = ref<boolean>(false);
+	const isLoggedIn = ref<boolean>(true);
 
 	const toggleDrawer = () => {
 		showDrawer.value = !showDrawer.value;
