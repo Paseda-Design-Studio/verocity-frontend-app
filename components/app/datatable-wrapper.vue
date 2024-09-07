@@ -6,8 +6,10 @@
       <slot name="right" />
     </div>
     
-    <!-- Slot for rendering the table -->
-    <slot name="table" :tableData="tableData" />
+    <!-- Wrapper for table with horizontal scroll -->
+    <div class="table__wrapper">
+      <slot name="table" :tableData="tableData" />
+    </div>
 
     <!-- Footer section for pagination or any other content -->
     <slot name="footer" :currentPage="currentPage" :totalPages="totalPages" @updatePage="updatePage" />
@@ -38,11 +40,13 @@ const updatePage = (page: number) => {
 <style lang="scss" scoped>
 .table__container {
   width: 100%;
-  overflow-x: auto;
   padding: 1rem;
   background-color: transparent;
+}
 
-  // Custom Scrollbar Styles
+.table__wrapper {
+  overflow-x: auto;
+  // Make sure the table wrapper has a scrollbar when needed
   &::-webkit-scrollbar {
     height: 4px;
   }
