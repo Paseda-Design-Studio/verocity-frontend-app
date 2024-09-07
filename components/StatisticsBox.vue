@@ -8,7 +8,7 @@
 
 <template>
 	<div
-		class="flex flex-col bg-white p-6 h-[100px] md:h-[176px] rounded-lg border border-gray-200"
+		class="flex flex-col bg-white p-6 rounded-lg border border-gray-200"
 	>
 		<p class="font-medium text-gray-700 text-16 mb-3 md:mb-4">
 			{{ title }}

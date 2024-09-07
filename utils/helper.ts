@@ -24,27 +24,27 @@ export const carouselResponsiveOptions = [
 export const sidebarLinks = [
 	{
 		imgURL: '/icons/dashboard.svg',
-		route: '/dashboard',
+		route: '/admin/dashboard',
 		label: 'Dashboard',
 	},
 	{
 		imgURL: '/icons/tracking.svg',
-		route: '/tracking',
+		route: '/admin/tracking',
 		label: 'Tracking',
 	},
 	{
 		imgURL: '/icons/shipment.svg',
-		route: '/shipment',
+		route: '/admin/shipment',
 		label: 'Shipment Management',
 	},
 	{
 		imgURL: '/icons/customer.svg',
-		route: '/customer',
-		label: 'Customer',
+		route: '/admin/customers',
+		label: 'Customers',
 	},
 	{
 		imgURL: '/icons/setting.svg',
-		route: '/setting',
+		route: '/admin/setting',
 		label: 'Settings',
 	},
 ];

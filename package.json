@@ -22,6 +22,7 @@
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "nuxt-primevue": "^3.0.0"
+    "nuxt-primevue": "^3.0.0",
+    "sass": "^1.78.0"
   }
 }
