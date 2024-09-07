@@ -50,7 +50,7 @@
 				<div
 					class="mt-10 grid grid-cols-1 gap-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3"
 				>
-					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-2xl">
+					<div class="flex flex-col bg-[#FBFAF7] gap-4 py-10 px-8 transform transition duration-200 hover:scale-110 hover:shadow-lg">
 						<div class="flex justify-center items-center">
 							<img
 								src="/flexible-icon.png"

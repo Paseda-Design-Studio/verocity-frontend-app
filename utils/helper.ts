@@ -20,3 +20,41 @@ export const carouselResponsiveOptions = [
 		numScroll: 1,
 	},
 ];
+
+export const sidebarLinks = [
+	{
+		imgURL: '/icons/dashboard.svg',
+		route: '/admin/dashboard',
+		label: 'Dashboard',
+	},
+	{
+		imgURL: '/icons/tracking.svg',
+		route: '/admin/tracking',
+		label: 'Tracking',
+	},
+	{
+		imgURL: '/icons/shipment.svg',
+		route: '/admin/shipment',
+		label: 'Shipment Management',
+	},
+	{
+		imgURL: '/icons/customer.svg',
+		route: '/admin/customers',
+		label: 'Customers',
+	},
+	{
+		imgURL: '/icons/setting.svg',
+		route: '/admin/setting',
+		label: 'Settings',
+	},
+];
+
+export const formatAmount = (amount: number) => {
+	const formatter = new Intl.NumberFormat('en-NG', {
+		style: 'currency',
+		currency: 'NGN',
+		minimumFractionDigits: 2,
+	});
+
+	return formatter.format(amount);
+};

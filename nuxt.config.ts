@@ -1,4 +1,4 @@
-import * as path from 'path';
+import { resolve } from "path";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -22,6 +22,10 @@ export default defineNuxtConfig({
 	imports: {
 		dirs: ['stores'],
 	},
+	alias: {
+		api: resolve(__dirname, "./api"),
+		types: resolve(__dirname, "./types"),
+	  },
 
 	primevue: {
 		options: {
@@ -76,6 +80,19 @@ export default defineNuxtConfig({
 						'primary-900': 'var(--primary-900)',
 						'primary-950': 'var(--primary-950))',
 						'text-color': '#49494B',
+
+						gray: 'var(--gray)',
+						'gray-50': 'var(--gray-50)',
+						'gray-100': 'var(--gray-100)',
+						'gray-200': 'var(--gray-200)',
+						'gray-300': 'var(--gray-300)',
+						'gray-400': 'var(--gray-400)',
+						'gray-500': 'var(--gray-500)',
+						'gray-600': 'var(--gray-600)',
+						'gray-700': 'var(--gray-700)',
+						'gray-800': 'var(--gray-800)',
+						'gray-900': 'var(--gray-900)',
+
 						secondary: 'var(--secondary)',
 						'secondary-50': 'var(--secondary-50)',
 						'secondary-100': 'var(--secondary-100)',
