@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 		},
 		importPT: { as: 'Krobot', from: '~/presets/krobot' },
 		components: {
-			exclude: ['Chart', 'Editor', 'DataTable'],
+			exclude: ['Editor', 'DataTable'],
 		},
 	},
 
