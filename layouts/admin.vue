@@ -100,7 +100,7 @@ const profileMenu = ref([
       </header>
 
       <section class="home bg-green-50 h-full">
-        <div class="home-content container mx-auto">
+        <div class="home-content container mx-auto gap-1">
           <slot></slot>
         </div>
       </section>

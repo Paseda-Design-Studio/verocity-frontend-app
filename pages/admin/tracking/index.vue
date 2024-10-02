@@ -129,9 +129,7 @@
 				</IconField>
 			</template>
 
-      <template #tableCta="{item}">
-				Hello
-			</template>
+			<template #tableCta="{ item }"> Hello </template>
 
 			<!-- Right slot -->
 			<template #right>
@@ -142,22 +140,30 @@
 						<InputGroupAddon class="text-sm !border-0">
 							Status
 						</InputGroupAddon>
-						<Select
-							:options="statusOptions"
-							optionLabel="name"
-							class="w-20"
-							size="sm"
-						/>
+						<select
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option
+								selected
+								value="all"
+							>
+								All
+							</option>
+						</select>
 					</InputGroup>
 
 					<InputGroup class="border !border-[#D0D5DD] rounded-sm">
 						<InputGroupAddon class="text-sm !border-0"> Date </InputGroupAddon>
-						<Select
-							:options="dateOptions"
-							optionLabel="name"
-							class="w-20"
-							size="sm"
-						/>
+						<select
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option
+								selected
+								value="all"
+							>
+								All
+							</option>
+						</select>
 					</InputGroup>
 				</div>
 			</template>
@@ -169,8 +175,6 @@
 					:tableData="tableData"
 				/>
 			</template>
-
-
 
 			<!-- Footer slot for pagination -->
 			<template #footer="{ currentPage, totalPages, onUpdatePage }">

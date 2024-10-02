@@ -3,44 +3,44 @@
 		layout: 'admin',
 	});
 
-	interface NotificationProp {
+	const statusOptions = ref([{ name: 'All', key: 'all' }]);
+
+	const dateOptions = ref([{ name: 'All', key: 'all' }]);
+
+	interface shipmentHistoryProp {
 		id: number;
+		trackID: string;
+		customerName: string;
+		date: string;
+		amount: number;
 		status: string;
-		type: string;
-		recipient: string;
 	}
 
 	const columns = [
+		{ label: 'Order ID', key: 'trackID' },
+		{ label: 'Customer Name', key: 'customerName' },
+		{ label: 'Date', key: 'date' },
+		{ label: 'Amount', key: 'amount' },
 		{ label: 'Status', key: 'status' },
-		{ label: 'Type', key: 'type' },
-		{ label: 'Recipient', key: 'recipient' },
 	];
 
 	// Sample data
-	const notifications: NotificationProp[] = [
+	const histories: shipmentHistoryProp[] = [
 		{
 			id: 1,
-			status: 'New Shipment',
-			type: 'in app/email',
-			recipient: 'Customers',
+			trackID: 'PCM-034PR0871',
+			customerName: 'Jane Oliver',
+			date: '24 Apr 2023',
+			amount: 180,
+			status: 'pending',
 		},
 		{
 			id: 2,
-			status: 'Cancelled Shipment',
-			type: 'in app/email',
-			recipient: 'Customers',
-		},
-		{
-			id: 3,
-			status: 'Delivery',
-			type: 'in app/email',
-			recipient: 'Customers',
-		},
-		{
-			id: 4,
-			status: 'Pending',
-			type: 'in app/email',
-			recipient: 'Customers',
+			trackID: 'PCM-034PR0871',
+			customerName: 'Kaiya Bator',
+			date: '24 Apr 2023',
+			amount: 180,
+			status: 'pending',
 		},
 	];
 
@@ -52,11 +52,11 @@
 	// Filtered data based on search query
 	const filteredData = computed(() => {
 		const query = searchQuery.value.toLowerCase();
-		if (!query) return notifications;
+		if (!query) return histories;
 
-		return notifications.filter((item: NotificationProp) =>
+		return histories.filter((item: shipmentHistoryProp) =>
 			columns.some((column) =>
-				(item[column.key as keyof NotificationProp] as string)
+				(item[column.key as keyof shipmentHistoryProp] as string)
 					.toLowerCase()
 					.includes(query)
 			)
@@ -92,6 +92,79 @@
 			>Add shipment
 		</NuxtLink>
 	</header>
+
+	<Divider class="my-2" />
+
+	<section>
+		<app-datatable-wrapper
+			:columns="columns"
+			:tableData="paginatedData"
+			:currentPage="currentPage"
+			:totalPages="totalPages"
+			:updatePage="handlePageChange"
+		>
+			<!-- Left slot -->
+			<template #left>
+				<IconField>
+					<IconsSearch />
+					<InputText
+						v-model="searchQuery"
+						placeholder="Search"
+					/>
+				</IconField>
+			</template>
+
+			<template #empty>
+				<div class="flex">Empty</div>
+			</template>
+
+			<!-- Right slot -->
+			<template #right>
+				<!-- Add filter dropdown or other controls here -->
+				<div class="flex gap-2 items-center">
+					<span class="text-sm">Filter:</span>
+					<InputGroup class="border !border-[#D0D5DD] rounded-sm">
+						<InputGroupAddon class="text-sm !border-0">
+							Status
+						</InputGroupAddon>
+						<Select
+							:options="statusOptions"
+							optionLabel="name"
+							class="w-20"
+							size="sm"
+						/>
+					</InputGroup>
+
+					<InputGroup class="border !border-[#D0D5DD] rounded-sm">
+						<InputGroupAddon class="text-sm !border-0"> Date </InputGroupAddon>
+						<Select
+							:options="dateOptions"
+							optionLabel="name"
+							class="w-20"
+							size="sm"
+						/>
+					</InputGroup>
+				</div>
+			</template>
+
+			<!-- Table slot -->
+			<template #table="{ tableData }">
+				<app-datatable
+					:columns="columns"
+					:tableData="tableData"
+				/>
+			</template>
+
+			<!-- Footer slot for pagination -->
+			<template #footer="{ currentPage, totalPages, onUpdatePage }">
+				<app-pagination
+					:currentPage="currentPage"
+					:totalPages="totalPages"
+					@onUpdatePage="handlePageChange"
+				/>
+			</template>
+		</app-datatable-wrapper>
+	</section>
 </template>
 
 <style scoped></style>

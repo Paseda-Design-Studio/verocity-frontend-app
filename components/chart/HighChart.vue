@@ -1,6 +1,6 @@
 <template>
 	<Chart
-		type="doughnut"
+		type="pie"
 		:data="chartData"
 		:options="chartOptions"
 		class="w-1/2"
