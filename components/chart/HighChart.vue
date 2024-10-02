@@ -3,7 +3,7 @@
 		type="doughnut"
 		:data="chartData"
 		:options="chartOptions"
-		class="w-full"
+		class="w-1/2"
 	/>
 </template>
 
@@ -20,15 +20,20 @@
 
 	const setChartData = () => {
 		return {
-			labels: ['A', 'B', 'C'],
+			labels: ['A', 'B', 'C', 'D', 'E'],
 			datasets: [
 				{
-					data: [540, 325, 702],
+					data: [540, 325, 702, 543, 234],
 					backgroundColor: [
 						'rgb(255, 99, 132)',
 						'rgb(54, 162, 235)',
 						'rgb(255, 205, 86)',
+						'rgb(255, 102, 36)',
+						'rgb(255, 112, 56)',
 					],
+					// Adding border to the chart slices
+					borderWidth: 2, // Adjust the width as needed
+					borderColor: '#fff', // Change this to any color you want
 				},
 			],
 		};
@@ -42,11 +47,12 @@
 			plugins: {
 				legend: {
 					labels: {
-						cutout: '50%',
+						cutout: '100%',
 						color: textColor,
 					},
 				},
 			},
+			
 		};
 	};
 </script>

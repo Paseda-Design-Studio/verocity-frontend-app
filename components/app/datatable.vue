@@ -77,7 +77,7 @@ table {
   th {
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     background-color: #f7f7f7;
   }
 

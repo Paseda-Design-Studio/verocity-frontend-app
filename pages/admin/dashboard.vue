@@ -2,6 +2,28 @@
 	definePageMeta({
 		layout: 'admin',
 	});
+
+	const columns = [
+		{ label: 'Customer Name', key: 'customer' },
+		{ label: 'Shipment ID', key: 'trackID' },
+		{ label: 'Shipment Date', key: 'date' },
+		{ label: 'From', key: 'departure' },
+		{ label: 'Destination', key: 'destination' },
+		{ label: 'Status', key: 'status' },
+	];
+
+	// Sample data
+	const activities: shipmentProp[] = [
+		{
+			id: 1,
+			customer: 'Jane Oliver',
+			trackID: 'PCM-034PR0871',
+			date: '24 Apr 2023',
+			departure: 'United States',
+			destination: 'Ghana',
+			status: 'pending',
+		},
+	];
 </script>
 
 <template>
@@ -55,7 +77,7 @@
 				>
 			</div>
 			<div class="flex">
-				<!-- <ChartHighChart/> -->
+				<ChartHighChart />
 			</div>
 		</div>
 	</section>
@@ -74,7 +96,18 @@
 		</div>
 
 		<div class="relative overflow-x-auto">
-			<table
+			<app-datatable-wrapper
+      :columns="columns"
+      :tableData="activities"
+    >
+
+      <!-- Table slot -->
+      <template #table="{ tableData }">
+        <app-datatable :columns="columns" :tableData="activities" />
+      </template>
+
+    </app-datatable-wrapper>
+			<!-- <table
 				class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
 			>
 				<thead
@@ -91,9 +124,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr
-						class="bg-white"
-					>
+					<tr class="bg-white">
 						<th class="px-6 py-3 whitespace-nowrap">Jane Oliver</th>
 						<td class="px-6 py-3">PCM-034PR0871</td>
 						<td class="px-6 py-3">24 Apr 2023</td>
@@ -110,7 +141,7 @@
 						</td>
 					</tr>
 				</tbody>
-			</table>
+			</table> -->
 		</div>
 	</section>
 </template>

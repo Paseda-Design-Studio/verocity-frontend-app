@@ -44,8 +44,27 @@ export const sidebarLinks = [
 	},
 	{
 		imgURL: '/icons/setting.svg',
-		route: '/admin/setting',
+		route: '/admin/settings',
 		label: 'Settings',
+	},
+];
+
+export const tabSettingsLinks = [
+	{
+		route: '/admin/settings',
+		label: 'Profile',
+	},
+	{
+		route: '/admin/settings/admin',
+		label: 'Admin',
+	},
+	{
+		route: '/admin/settings/notifications',
+		label: 'Notifications',
+	},
+	{
+		route: '/admin/settings/logs',
+		label: 'Logs',
 	},
 ];
 

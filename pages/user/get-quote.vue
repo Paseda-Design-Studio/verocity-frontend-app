@@ -22,7 +22,7 @@ const heroData: heroData = {
     :backgroundImage="heroData.backgroundImage"
   />
 
-  <section class="relative overflow-hidden mt-10 py-10 sm:py-24">
+  <section class="relative overflow-hidden py-10 sm:py-24 mt-20">
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <form action="" method="post">
