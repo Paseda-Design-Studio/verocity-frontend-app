@@ -14,7 +14,7 @@
 
 	const showDrawer = ref<boolean>(false);
 
-	const isLoggedIn = ref<boolean>(true);
+	const isLoggedIn = ref<boolean>(false);
 
 	const toggleDrawer = () => {
 		showDrawer.value = !showDrawer.value;
@@ -95,7 +95,7 @@
 								aria-controls="overlay_menu"
 							>
 								<img
-									src="/icons/email-outline.svg"
+									src="/icons/email.svg"
 									alt=""
 								/>
 							</Button>

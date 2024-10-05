@@ -27,7 +27,7 @@
 </script>
 
 <template>
-	<section class="relative overflow-hidden bg-gray-50 py-10 sm:py-24">
+	<section class="relative overflow-hidden bg-gray-50 py-10 sm:py-24 mt-20">
 		<div class="container">
 			<div class="max-w-3xl mx-auto">
 				<h2 class="text-gray-900 text-3xl font-bold mb-6">Shipment</h2>

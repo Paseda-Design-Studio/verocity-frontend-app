@@ -3,8 +3,8 @@ import { resolve } from "path";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	app: {
-		layoutTransition: { name: 'slide-fade-left', mode: 'out-in' },
-		pageTransition: { name: 'slide-fade-left', mode: 'out-in' },
+		// layoutTransition: { name: 'slide-fade-left', mode: 'out-in' },
+		// pageTransition: { name: 'slide-fade-left', mode: 'out-in' },
 	},
 	devtools: { enabled: true },
 	modules: ['@nuxtjs/tailwindcss', 'nuxt-primevue', '@pinia/nuxt', [
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 		},
 		importPT: { as: 'Krobot', from: '~/presets/krobot' },
 		components: {
-			exclude: ['Chart', 'Editor', 'DataTable'],
+			exclude: ['Editor', 'DataTable'],
 		},
 	},
 

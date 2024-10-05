@@ -76,12 +76,13 @@
 }
 
 input,
-textarea {
+textarea,
+select {
 	background-color: #f7f9fc !important;
 	border-color: #f2f4f7 !important;
+	@apply text-sm;
 }
 
-input,
 input::placeholder {
 	@apply text-sm;
 }

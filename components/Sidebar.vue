@@ -1,5 +1,5 @@
 <script setup>
-	import { RouterLink } from 'vue-router';
+	import { RouterLink, useRoute } from 'vue-router';
 
 	import { sidebarLinks } from '../utils/helper';
 
@@ -7,6 +7,12 @@
 		user: {
 			type: Object,
 		},
+	});
+
+	const route = useRoute();
+
+	onMounted(() => {
+		console.log(route.path);
 	});
 
 	const logout = () => {
@@ -34,6 +40,7 @@
 				class="sidebar-link"
 				v-for="item in sidebarLinks"
 				:key="item.label"
+				:class="{ active: route.path === item.route }"
 			>
 				<div class="relative">
 					<img
@@ -72,4 +79,8 @@
 	</section>
 </template>
 
-<style scoped></style>
+<style>
+	.router-link-exact-active {
+		color: red !important; /* Example styling for active class */
+	}
+</style>
