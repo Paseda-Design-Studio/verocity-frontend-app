@@ -17,7 +17,6 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Render table rows -->
       <tr
         v-for="item in tableData"
         :key="item.id"
@@ -29,10 +28,20 @@
           scope="row"
           class="px-6 py-6 text-gray-900 whitespace-nowrap space-x-2"
         >
-          {{ item[column.key] }}
+          <!-- Render Chip if the column key is "status" -->
+          <app-status-chip
+            v-if="column.key === 'status'"
+            :status="capitalizeFirstLetter(item[column.key])"
+          >
+            {{ capitalizeFirstLetter(item[column.key]) }}
+          </app-status-chip>
+          <!-- Render default text for other columns -->
+          <span v-else>{{ item[column.key] }}</span>
         </td>
-        <!-- Slot for custom CTA or actions -->
-        <td class="px-6 py-2 text-gray-900 whitespace-nowrap space-x-2">
+        <!-- Slot for custom CTA or actions with a smaller width and centered content -->
+        <td
+          class="px-2 py-2 mt-2 text-gray-900 whitespace-nowrap flex items-center justify-center"
+        >
           <slot name="tableCta" :item="item" />
         </td>
       </tr>

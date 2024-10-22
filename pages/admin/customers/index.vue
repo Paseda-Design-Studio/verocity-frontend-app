@@ -20,11 +20,41 @@ const columns = [
 
 // Sample data
 const customers: Customer[] = [
-  { id: 1, name: "John Doe", email: "johndoe@example.com", county: "Los Angeles", phone: "+1-555-1234" },
-  { id: 2, name: "Jane Smith", email: "janesmith@example.com", county: "Orange", phone: "+1-555-5678" },
-  { id: 3, name: "Alice Johnson", email: "alice.johnson@example.com", county: "San Diego", phone: "+1-555-8765" },
-  { id: 4, name: "Bob Brown", email: "bobbrown@example.com", county: "San Bernardino", phone: "+1-555-4321" },
-  { id: 5, name: "Charlie Davis", email: "charliedavis@example.com", county: "Riverside", phone: "+1-555-3456" },
+  {
+    id: 1,
+    name: "John Doe",
+    email: "johndoe@example.com",
+    county: "Los Angeles",
+    phone: "+1-555-1234",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    email: "janesmith@example.com",
+    county: "Orange",
+    phone: "+1-555-5678",
+  },
+  {
+    id: 3,
+    name: "Alice Johnson",
+    email: "alice.johnson@example.com",
+    county: "San Diego",
+    phone: "+1-555-8765",
+  },
+  {
+    id: 4,
+    name: "Bob Brown",
+    email: "bobbrown@example.com",
+    county: "San Bernardino",
+    phone: "+1-555-4321",
+  },
+  {
+    id: 5,
+    name: "Charlie Davis",
+    email: "charliedavis@example.com",
+    county: "Riverside",
+    phone: "+1-555-3456",
+  },
 ];
 
 // Pagination & search states
@@ -39,11 +69,12 @@ const filteredData = computed(() => {
 
   return customers.filter((item: Customer) =>
     columns.some((column) =>
-      (item[column.key as keyof Customer] as string).toLowerCase().includes(query)
+      (item[column.key as keyof Customer] as string)
+        .toLowerCase()
+        .includes(query)
     )
   );
 });
-
 
 // Paginated data based on current page
 const paginatedData = computed(() => {
@@ -52,7 +83,9 @@ const paginatedData = computed(() => {
 });
 
 // Calculate total pages
-const totalPages = computed(() => Math.ceil(filteredData.value.length / itemsPerPage.value));
+const totalPages = computed(() =>
+  Math.ceil(filteredData.value.length / itemsPerPage.value)
+);
 
 // Update page handler
 const handlePageChange = (newPage: number) => {
@@ -64,9 +97,7 @@ const handlePageChange = (newPage: number) => {
 
 <template>
   <header class="home-header">
-    <HeaderBox
-      title="Customers"
-    />
+    <HeaderBox title="Customers" />
   </header>
 
   <section>
@@ -92,7 +123,11 @@ const handlePageChange = (newPage: number) => {
 
       <!-- Table slot -->
       <template #table="{ tableData }">
-        <app-datatable :columns="columns" :tableData="tableData" />
+        <app-datatable :columns="columns" :tableData="tableData">
+          <template #tableCta>
+            <app-table-menu />
+          </template>
+        </app-datatable>
       </template>
 
       <!-- Footer slot for pagination -->
