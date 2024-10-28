@@ -22,49 +22,65 @@ Map this props to a type of ARRAY
 			datasets: [
 				{
 					data: [540, 325, 702, 620, 345, 123, 987],
-					backgroundColor: ['rgb(240, 82, 44)'],
+					backgroundColor: ['rgb(240,82,44)'],
 				},
 			],
 		};
 	};
 	const setChartOptions = () => {
-		const documentStyle = getComputedStyle(document.documentElement);
-		const textColor = documentStyle.getPropertyValue('--p-text-color');
-		const textColorSecondary = documentStyle.getPropertyValue(
-			'--p-text-muted-color'
-		);
-		const surfaceBorder = documentStyle.getPropertyValue(
-			'--p-content-border-color'
-		);
-
 		return {
+			// maintainAspectRatio: false,
+			aspectRatio: 1.5,
 			plugins: {
+				customCanvasBackgroundColor: {
+					color: 'lightGreen',
+				},
+
 				legend: {
+					display: false,
+					position: 'top',
+					align: 'center',
+					padding: 10,
 					labels: {
-						color: '#fff',
+						color: '#1B1C1E',
+						boxWidth: 5,
+						borderRadius: '50%',
+						usePointStyle: true,
+						padding: 28,
 					},
 				},
 			},
-			scales: {
-				x: {
-					ticks: {
-						color: textColorSecondary,
-					},
-					grid: {
-						color: surfaceBorder,
-					},
-				},
-				y: {
-					beginAtZero: true,
-					ticks: {
-						color: textColorSecondary,
-					},
-					grid: {
-						color: surfaceBorder,
-					},
-				},
-			},
+			// Adding the custom plugin to display text in the center of the doughnut
 		};
+
+		// return {
+		// 	plugins: {
+		// 		legend: {
+		// 			labels: {
+		// 				color: '#fff',
+		// 			},
+		// 		},
+		// 	},
+		// 	scales: {
+		// 		x: {
+		// 			ticks: {
+		// 				color: textColorSecondary,
+		// 			},
+		// 			grid: {
+		// 				color: surfaceBorder,
+		// 			},
+		// 		},
+		// 		y: {
+		// 			beginAtZero: true,
+		// 			ticks: {
+		// 				color: textColorSecondary,
+		// 			},
+		// 			grid: {
+		// 				color: surfaceBorder,
+		// 			},
+		// 		},
+		// 	},
+		// };
 	};
 </script>
 

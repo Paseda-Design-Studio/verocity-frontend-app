@@ -78,9 +78,9 @@
 				>
 					<template #item="slotProps">
 						<div
-							class="flex flex-col m-4 gap-4 bg-[#F9FAFB] py-10 px-8 rounded"
+							class="flex flex-col m-4 gap-4 bg-[#F9FAFB] py-10 px-8 rounded shadow-custom-2"
 						>
-							<p class="text-lg leading-[30px] text-gray-700">
+							<p class="text-xl leading-[30px] tracking-[-0.02em] text-gray-700">
 								{{slotProps.data.content}}
 							</p>
 							<div class="flex items-center gap-2">

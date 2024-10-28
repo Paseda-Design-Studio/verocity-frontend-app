@@ -26,7 +26,7 @@
           v-for="column in columns"
           :key="column.key"
           scope="row"
-          class="px-6 py-6 text-gray-900 whitespace-nowrap space-x-2"
+          class="px-6 py-4 text-gray-900 whitespace-nowrap space-x-2"
         >
           <!-- Render Chip if the column key is "status" -->
           <app-status-chip
@@ -82,6 +82,7 @@ const props = defineProps({
 table {
   min-width: 100%;
   background-color: #fff;
+  border: 1px solid #EAECF0;
 
   th {
     font-size: 12px;

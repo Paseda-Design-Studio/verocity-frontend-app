@@ -37,7 +37,7 @@ definePageMeta({
   <section class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
     <div class="flex flex-col gap-4 bg-white py-10 p-6 rounded">
       <div class="flex justify-between items-center">
-        <span class="text-sm text-gray-900 font-bold capitalize"
+        <span class="text-xl text-gray-900 font-bold capitalize"
           >New Shipment</span
         >
       </div>
@@ -46,7 +46,7 @@ definePageMeta({
 
     <div class="flex flex-col gap-4 bg-white py-10 p-6 rounded">
       <div class="flex justify-between items-center">
-        <span class="text-sm text-gray-900 font-bold capitalize"
+        <span class="text-xl text-gray-900 font-bold capitalize"
           >Status overview</span
         >
       </div>

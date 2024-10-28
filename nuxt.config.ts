@@ -56,6 +56,10 @@ export default defineNuxtConfig({
 						openSans: ['Open Sans', 'sans-serif'],
 						metroSans: ['Metro Sans', 'sans-serif'],
 					},
+					boxShadow: {
+						'custom-1': '0px 1px 2px 0px rgba(16, 24, 40, 0.06)',
+						'custom-2': '0px 1px 3px 0px rgba(16, 24, 40, 0.10)',
+					},
 					colors: {
 						primary: 'var(--primary)',
 						'primary-inverse': 'var(--primary-inverse)',

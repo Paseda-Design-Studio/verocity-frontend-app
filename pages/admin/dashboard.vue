@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 	definePageMeta({
 		layout: 'admin',
 	});
@@ -23,7 +24,32 @@
 			destination: 'Ghana',
 			status: 'pending',
 		},
+		{
+			id: 2,
+			customer: 'Jane Oliver',
+			trackID: 'PCM-034PR0871',
+			date: '24 Apr 2023',
+			departure: 'United States',
+			destination: 'Ghana',
+			status: 'delivery',
+		},
+		{
+			id: 3,
+			customer: 'Jane Oliver',
+			trackID: 'PCM-034PR0871',
+			date: '24 Apr 2023',
+			departure: 'United States',
+			destination: 'Ghana',
+			status: 'In Transit',
+		},
 	];
+
+	const filterOptions = [
+		{ name: 'This Week' },
+		{ name: 'This Month' },
+		{ name: 'This Year' },
+	];
+	const selectedOption = ref(filterOptions[0]);
 </script>
 
 <template>
@@ -59,22 +85,24 @@
 	</header>
 
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-		<div class="flex flex-col gap-4 bg-white py-10 p-6 rounded">
+		<div class="flex flex-col gap-4 bg-white p-6 rounded">
 			<div class="flex justify-between items-center">
-				<span class="text-sm text-gray-900 font-bold capitalize"
+				<span class="text-lg text-gray-800 font-semibold capitalize"
 					>New Shipment</span
 				>
+				<CustomListOption :options="filterOptions" :modelValue="selectedOption" />
 			</div>
 			<div class="flex">
 				<ChartBarChart />
 			</div>
 		</div>
 
-		<div class="flex flex-col gap-4 bg-white py-10 p-6 rounded">
+		<div class="flex flex-col gap-4 bg-white p-6 rounded">
 			<div class="flex justify-between items-center">
-				<span class="text-sm text-gray-900 font-bold capitalize"
+				<span class="text-lg text-gray-800 font-semibold capitalize"
 					>Status overview</span
 				>
+				<CustomListOption :options="filterOptions" :modelValue="selectedOption" />
 			</div>
 			<div class="flex">
 				<ChartHighChart />
@@ -84,7 +112,7 @@
 
 	<section class="flex flex-col gap-2">
 		<div class="flex justify-between items-center">
-			<span class="text-sm text-gray-900 font-bold capitalize"
+			<span class="text-lg text-gray-800 font-semibold capitalize"
 				>Recent Activity</span
 			>
 			<Button
@@ -92,21 +120,28 @@
 				severity="secondary"
 				outlined
 				size="small"
+				class="bg-white"
 			/>
 		</div>
 
 		<div class="relative overflow-x-auto">
 			<app-datatable-wrapper
-      :columns="columns"
-      :tableData="activities"
-    >
-
-      <!-- Table slot -->
-      <template #table="{ tableData }">
-        <app-datatable :columns="columns" :tableData="activities" />
-      </template>
-
-    </app-datatable-wrapper>
+				:columns="columns"
+				:tableData="activities"
+			>
+				<!-- Table slot -->
+				<!-- Table slot -->
+				<template #table="{ tableData }">
+					<app-datatable
+						:columns="columns"
+						:tableData="activities"
+					>
+						<template #tableCta>
+							<app-table-menu />
+						</template>
+					</app-datatable>
+				</template>
+			</app-datatable-wrapper>
 			<!-- <table
 				class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
 			>

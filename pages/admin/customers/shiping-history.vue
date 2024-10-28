@@ -128,13 +128,16 @@
 			:totalPages="totalPages"
 			:updatePage="handlePageChange"
 		>
-
 			<!-- Table slot -->
 			<template #table="{ tableData }">
 				<app-datatable
 					:columns="columns"
 					:tableData="tableData"
-				/>
+				>
+					<template #tableCta>
+						<app-table-menu />
+					</template>
+				</app-datatable>
 			</template>
 
 			<!-- Footer slot for pagination -->

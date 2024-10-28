@@ -86,13 +86,24 @@
 		>
 			<!-- Left slot -->
 			<template #left>
-				<IconField>
-					<IconsSearch />
-					<InputText
-						v-model="searchQuery"
-						placeholder="Search"
-					/>
-				</IconField>
+				<div class="flex items-center">
+					<span class="text-sm">Filter:</span>
+					<InputGroup class="border !border-[#D0D5DD] rounded-sm">
+						<InputGroupAddon class="text-sm !border-0 bg-white"
+							>Status:</InputGroupAddon
+						>
+						<select
+							class="!bg-white border border-l-0 border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-0 block w-full focus:outline-none py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option
+								selected
+								value="all"
+							>
+								All
+							</option>
+						</select>
+					</InputGroup>
+				</div>
 			</template>
 
 			<!-- Right slot -->
@@ -105,7 +116,11 @@
 				<app-datatable
 					:columns="columns"
 					:tableData="tableData"
-				/>
+				>
+					<template #tableCta>
+						<app-table-menu />
+					</template>
+				</app-datatable>
 			</template>
 
 			<!-- Footer slot for pagination -->

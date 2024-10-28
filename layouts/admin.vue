@@ -99,7 +99,7 @@ const profileMenu = ref([
         </div>
       </header>
 
-      <section class="home bg-green-50 h-full">
+      <section class="home bg-[#f8f9fa] h-full">
         <div class="home-content container mx-auto gap-1">
           <slot></slot>
         </div>

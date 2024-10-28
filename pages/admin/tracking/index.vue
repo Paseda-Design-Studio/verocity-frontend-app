@@ -44,7 +44,7 @@ const histories: shipmentHistoryProp[] = [
     deliveryDate: "24 Apr 2023",
     departure: "United States",
     destination: "Ghana",
-    status: "pending",
+    status: "out for delivery",
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const histories: shipmentHistoryProp[] = [
     deliveryDate: "24 Apr 2023",
     departure: "United States",
     destination: "Ghana",
-    status: "pending",
+    status: "delivered",
   },
 
   {
@@ -63,7 +63,7 @@ const histories: shipmentHistoryProp[] = [
     deliveryDate: "24 Apr 2023",
     departure: "United States",
     destination: "Ghana",
-    status: "pending",
+    status: "cancelled",
   },
 ];
 
@@ -122,11 +122,10 @@ const handlePageChange = (newPage: number) => {
       <template #left>
         <IconField>
           <IconsSearch />
-          <InputText v-model="searchQuery" placeholder="Enter tracking ID" />
+          <InputText class="!bg-white focus:ring-0 focus:border focus:border-gray-500" v-model="searchQuery" placeholder="Enter tracking ID" />
         </IconField>
       </template>
 
-      <template #tableCta="{ item }"> Hello </template>
 
       <!-- Right slot -->
       <template #right>
@@ -134,20 +133,18 @@ const handlePageChange = (newPage: number) => {
         <div class="flex gap-2 items-center">
           <span class="text-sm">Filter:</span>
           <InputGroup class="border !border-[#D0D5DD] rounded-sm">
-            <InputGroupAddon class="text-sm !border-0">
-              Status
-            </InputGroupAddon>
+            <InputGroupAddon class="text-sm !border-0 bg-white">Status:</InputGroupAddon>
             <select
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="!bg-white border border-l-0 border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-0 block w-full focus:outline-none py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option selected value="all">All</option>
             </select>
           </InputGroup>
 
           <InputGroup class="border !border-[#D0D5DD] rounded-sm">
-            <InputGroupAddon class="text-sm !border-0"> Date </InputGroupAddon>
+            <InputGroupAddon class="text-sm !border-0 bg-white">Date:</InputGroupAddon>
             <select
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="!bg-white border border-l-0 border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-0 block w-full focus:outline-none py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option selected value="all">All</option>
             </select>

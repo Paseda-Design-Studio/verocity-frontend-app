@@ -112,7 +112,7 @@ const handlePageChange = (newPage: number) => {
       <template #left>
         <IconField>
           <IconsSearch />
-          <InputText v-model="searchQuery" placeholder="Search" />
+          <InputText class="!bg-white focus:ring-0 focus:border focus:border-gray-500" v-model="searchQuery" placeholder="Search" />
         </IconField>
       </template>
 
