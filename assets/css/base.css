@@ -80,7 +80,6 @@ html,
 body {
 	/* @apply font-metroSans; */
 	box-sizing: border-box;
-	@apply text-gray-700;
 }
 
 input,
