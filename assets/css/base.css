@@ -75,6 +75,13 @@
 	src: url('/font/MetroSans-Regular.ttf');
 }
 
+*,
+html,
+body {
+	/* @apply font-metroSans; */
+	box-sizing: border-box;
+}
+
 input,
 textarea,
 select {
@@ -165,11 +172,11 @@ input::placeholder {
 	}
 
 	.home-content {
-		@apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-6 lg:py-8 xl:max-h-screen xl:overflow-y-scroll;
+		@apply no-scrollbar flex w-full flex-1 flex-col gap-4 px-5 sm:px-8 py-6 lg:py-8 xl:max-h-screen xl:overflow-y-scroll;
 	}
 
 	.home-header {
-		@apply flex flex-col justify-between gap-8;
+		@apply flex flex-col justify-between gap-0;
 	}
 
 	.total-balance {
@@ -208,7 +215,7 @@ input::placeholder {
 		@apply custom-scrollbar mb-8 flex w-full flex-nowrap;
 	}
 
-	/* Right sidebar */
+	/* Right .home-content */
 	.right-sidebar {
 		@apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll !important;
 	}
@@ -434,4 +441,9 @@ input::placeholder {
 	.sidebar-label {
 		@apply text-sm truncate text-gray-400 font-semibold max-xl:hidden;
 	}
+	
+	.section-container {
+		@apply flex w-full max-w-6xl flex-col gap-8 p-8 md:py-12;
+	}
+	
 }

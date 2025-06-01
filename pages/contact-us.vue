@@ -5,7 +5,7 @@
 
 <template>
 	<div>
-		<section class="relative overflow-hidden bg-white py-10 sm:py-24">
+		<section class="relative overflow-hidden bg-white py-10 sm:py-24 mt-20">
 			<div class="container">
 				<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-2">
 					<div class="flex flex-col gap-16">
@@ -23,7 +23,7 @@
 
 						<div class="flex flex-col gap-4">
 							<div
-								class="flex flex-col justify-end border-t rounded gap-2 py-8 px-6"
+								class="flex flex-col justify-end border-t border-gray-300 rounded-0 gap-2 py-4 px-0"
 							>
 								<div class="flex items-center">
 									<img
@@ -45,7 +45,7 @@
 							</div>
 
 							<div
-								class="flex flex-col justify-end border-t rounded gap-2 py-8 px-6"
+								class="flex flex-col justify-end border-t border-gray-300 rounded-0 gap-2 py-4 px-0"
 							>
 								<div class="flex items-center">
 									<img

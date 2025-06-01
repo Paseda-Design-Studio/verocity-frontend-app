@@ -54,7 +54,7 @@
 
 <template>
 	<div>
-		<section class="relative overflow-hidden py-10 sm:py-24">
+		<section class="relative overflow-hidden py-10 sm:py-24 mt-20">
 			<div class="container">
 				<div class="max-w-3xl">
 					<h2
@@ -81,6 +81,7 @@
 						<h2 class="text-3xl mb-4 font-semibold text-gray-900 sm:text-3xl">
 							Our story
 						</h2>
+
 
 						<p class="text-lg text-gray-700 dark:text-gray-200">
 							Providing an independent advice and identifying the right fit for
@@ -130,7 +131,7 @@
 					class="grid grid-cols-1 gap-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 mt-12"
 				>
 					<div
-						class="flex flex-col gap-4 bg-white py-10 px-8 rounded"
+						class="flex flex-col gap-4 bg-white py-10 px-8 rounded transform transition duration-200 hover:scale-110 hover:shadow-lg"
 						v-for="item in ourValues"
 						:key="item.title"
 					>
@@ -151,6 +152,8 @@
 				</div>
 			</div>
 		</section>
+
+		
 
 		<Testimonial />
 

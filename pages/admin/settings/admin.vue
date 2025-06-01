@@ -4,6 +4,7 @@
 	});
 
 	import { ref } from 'vue';
+	import { PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
 
 	const visible = ref(false);
 
@@ -166,6 +167,7 @@
 				<IconField>
 					<IconsSearch />
 					<InputText
+						class="!bg-white focus:ring-0 focus:border focus:border-gray-500"
 						v-model="searchQuery"
 						placeholder="Search"
 					/>
@@ -182,7 +184,30 @@
 				<app-datatable
 					:columns="columns"
 					:tableData="tableData"
-				/>
+				>
+					<template #tableCta>
+						<div class="flex gap-1">
+							<NuxtLink
+								to="#"
+								class="flex justify-center items-center p-1.5 rounded"
+							>
+								<img
+									src="/icons/edit-icon.svg"
+									class="h-5 w-5"
+								/>
+							</NuxtLink>
+							<NuxtLink
+								to="#"
+								class="flex justify-center items-center p-1.5 rounded"
+							>
+								<img
+									src="/icons/trash-icon.svg"
+									class="h-5 w-5"
+								/>
+							</NuxtLink>
+						</div>
+					</template>
+				</app-datatable>
 			</template>
 
 			<!-- Footer slot for pagination -->

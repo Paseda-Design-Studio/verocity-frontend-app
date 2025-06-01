@@ -77,3 +77,29 @@ export const formatAmount = (amount: number) => {
 
 	return formatter.format(amount);
 };
+
+
+// capitalize first letter of a string
+export const capitalizeFirstLetter = (str: string) => {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+// For a single country (both operational and all countries)
+export interface Country {
+  code: string;        // e.g. "GH"
+  dial_code: string;   // e.g. "+233"
+  flag: string;        // e.g. "🇬🇭"
+  name: string;        // e.g. "Ghana"
+  locations?: Location[];    // Optional array of states for the country
+}
+
+// For the API response structure
+export interface CountriesResponse {
+ countries: Country[]; // Array of Country objects	
+}
+
+// For a single state
+export interface Location {
+  code: string;        // e.g. "AA"
+  name: string;        // e.g. "Greater Accra"
+}

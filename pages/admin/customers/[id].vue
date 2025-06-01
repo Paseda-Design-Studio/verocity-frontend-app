@@ -3,8 +3,7 @@
 		layout: 'admin',
 	});
 
-
-  const columns = [
+	const columns = [
 		{ label: 'Shipment ID', key: 'trackID' },
 		{ label: 'Shipment Date', key: 'date' },
 		{ label: 'From', key: 'departure' },
@@ -23,8 +22,6 @@
 			status: 'pending',
 		},
 	];
-
-
 
 	// Pagination & search states
 	const currentPage = ref(1);
@@ -121,7 +118,7 @@
 		</div>
 	</section>
 
-  <section class="flex flex-col gap-2">
+	<section class="flex flex-col gap-2">
 		<div class="flex justify-between items-center">
 			<span class="text-sm text-gray-900 font-bold capitalize"
 				>Ongoing Delivery</span
@@ -136,17 +133,21 @@
 
 		<div class="relative overflow-x-auto">
 			<app-datatable-wrapper
-      :columns="columns"
-      :tableData="activities"
-    >
-
-      <!-- Table slot -->
-      <template #table="{ tableData }">
-        <app-datatable :columns="columns" :tableData="activities" />
-      </template>
-
-    </app-datatable-wrapper>
-			
+				:columns="columns"
+				:tableData="activities"
+			>
+				<!-- Table slot -->
+				<template #table="{ tableData }">
+					<app-datatable
+						:columns="columns"
+						:tableData="activities"
+					>
+						<template #tableCta>
+							<app-table-menu />
+						</template>
+					</app-datatable>
+				</template>
+			</app-datatable-wrapper>
 		</div>
 	</section>
 </template>

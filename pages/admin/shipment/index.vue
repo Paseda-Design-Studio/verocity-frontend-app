@@ -103,19 +103,19 @@
 			:totalPages="totalPages"
 			:updatePage="handlePageChange"
 		>
+			<template #empty>
+				<div class="flex">Empty</div>
+			</template>
 			<!-- Left slot -->
 			<template #left>
 				<IconField>
 					<IconsSearch />
 					<InputText
+						class="!bg-white focus:ring-0 focus:border focus:border-gray-500"
 						v-model="searchQuery"
-						placeholder="Search"
+						placeholder="Enter tracking ID"
 					/>
 				</IconField>
-			</template>
-
-			<template #empty>
-				<div class="flex">Empty</div>
 			</template>
 
 			<!-- Right slot -->
@@ -124,25 +124,35 @@
 				<div class="flex gap-2 items-center">
 					<span class="text-sm">Filter:</span>
 					<InputGroup class="border !border-[#D0D5DD] rounded-sm">
-						<InputGroupAddon class="text-sm !border-0">
-							Status
-						</InputGroupAddon>
-						<Select
-							:options="statusOptions"
-							optionLabel="name"
-							class="w-20"
-							size="sm"
-						/>
+						<InputGroupAddon class="text-sm !border-0 bg-white"
+							>Status:</InputGroupAddon
+						>
+						<select
+							class="!bg-white border border-l-0 border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-0 block w-full focus:outline-none py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option
+								selected
+								value="all"
+							>
+								All
+							</option>
+						</select>
 					</InputGroup>
 
 					<InputGroup class="border !border-[#D0D5DD] rounded-sm">
-						<InputGroupAddon class="text-sm !border-0"> Date </InputGroupAddon>
-						<Select
-							:options="dateOptions"
-							optionLabel="name"
-							class="w-20"
-							size="sm"
-						/>
+						<InputGroupAddon class="text-sm !border-0 bg-white"
+							>Date:</InputGroupAddon
+						>
+						<select
+							class="!bg-white border border-l-0 border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-0 block w-full focus:outline-none py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option
+								selected
+								value="all"
+							>
+								All
+							</option>
+						</select>
 					</InputGroup>
 				</div>
 			</template>

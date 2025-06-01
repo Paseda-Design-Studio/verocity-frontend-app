@@ -2,7 +2,7 @@
 
 <template>
 	<div>
-		<section class="bg-white py-10 sm:py-24">
+		<section class="bg-white py-10 sm:py-24 mt-20">
 			<div class="container">
 				<div
 					class="flex items-center flex-col justify-center max-w-2xl mx-auto"

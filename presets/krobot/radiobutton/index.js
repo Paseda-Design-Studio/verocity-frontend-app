@@ -8,7 +8,7 @@ export default {
             'align-bottom',
 
             // Size
-            'w-[1.571rem] h-[1.571rem]',
+            'w-[1rem] h-[1rem]',
 
             // Misc
             'cursor-pointer',
@@ -21,7 +21,7 @@ export default {
             'flex justify-center items-center',
 
             // Size
-            'w-[1.571rem] h-[1.571rem]',
+            'w-[1rem] h-[1rem]',
 
             // Shape
             'border-2',

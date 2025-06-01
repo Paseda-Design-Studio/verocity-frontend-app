@@ -127,7 +127,11 @@
 				<app-datatable
 					:columns="columns"
 					:tableData="tableData"
-				/>
+				>
+					<template #tableCta>
+						<app-table-menu />
+					</template>
+				</app-datatable>
 			</template>
 
 			<!-- Footer slot for pagination -->

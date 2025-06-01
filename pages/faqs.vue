@@ -8,7 +8,7 @@
 
 <template>
 	<div>
-		<section class="bg-primary-600 py-10 sm:py-24 relative">
+		<section class="bg-primary-600 py-10 sm:py-24 relative mt-20">
 			<div class="container relative z-20">
 				<div class="flex items-center flex-col justify-center">
 					<h2
@@ -26,7 +26,7 @@
 
 		<section class="bg-white py-10 sm:py-24">
 			<div class="container max-w-5xl">
-				<Accordion />
+				<FaqAccordion />
 			</div>
 		</section>
 	</div>
