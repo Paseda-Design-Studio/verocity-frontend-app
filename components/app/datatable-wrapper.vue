@@ -40,7 +40,7 @@ const updatePage = (page: number) => {
 <style lang="scss" scoped>
 .table__container {
   width: 100%;
-  padding: 1rem;
+  padding: 0rem;
   background-color: transparent;
 }
 

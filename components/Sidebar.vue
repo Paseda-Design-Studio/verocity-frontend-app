@@ -1,5 +1,5 @@
-<script setup>
-	import { RouterLink } from 'vue-router';
+<script setup lang="ts">
+	import { RouterLink, useRoute } from 'vue-router';
 
 	import { sidebarLinks } from '../utils/helper';
 
@@ -8,6 +8,10 @@
 			type: Object,
 		},
 	});
+
+	const route = useRoute();
+
+	const isActiveRoute = (path: string) => route.path.startsWith(path);
 
 	const logout = () => {
 		window.sessionStorage.clear();
@@ -24,7 +28,7 @@
 			>
 				<img
 					src="/logo/footer-logo.png"
-					alt="Horizon Logo"
+					alt="Company Logo"
 					class="sidebar-logo"
 				/>
 			</RouterLink>
@@ -34,6 +38,7 @@
 				class="sidebar-link"
 				v-for="item in sidebarLinks"
 				:key="item.label"
+				:class="{ active: isActiveRoute(item.route) }"
 			>
 				<div class="relative">
 					<img
@@ -42,7 +47,12 @@
 						class="sidebar-logo"
 					/>
 				</div>
-				<p class="sidebar-label">{{ item.label }}</p>
+				<p
+					class="sidebar-label"
+					:class="{ '!text-white': isActiveRoute(item.route) }"
+				>
+					{{ item.label }}
+				</p>
 			</RouterLink>
 
 			<!-- <Chip class="py-0 pl-0 pr-4">
@@ -72,4 +82,9 @@
 	</section>
 </template>
 
-<style scoped></style>
+<style>
+	.active {
+		background-color: #272e3c;
+		color: #fff;
+	}
+</style>

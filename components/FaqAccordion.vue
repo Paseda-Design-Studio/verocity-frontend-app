@@ -29,7 +29,7 @@
 					viewBox="0 0 10 6"
 				>
 					<path
-						stroke="currentColor"
+						stroke="currentColor"fvf
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						stroke-width="2"

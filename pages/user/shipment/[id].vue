@@ -38,7 +38,7 @@
 </script>
 
 <template>
-	<section class="relative overflow-hidden py-10 sm:py-12 bg-gray-50">
+	<section class="relative overflow-hidden py-10 sm:py-12 bg-gray-50 mt-20">
 		<div class="container">
 			<div class="max-w-6xl mx-auto">
 				<!-- back button -->

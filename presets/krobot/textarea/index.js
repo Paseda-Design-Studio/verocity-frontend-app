@@ -6,7 +6,7 @@ export default {
 
             // Spacing
             'm-0',
-            'p-3',
+            'p-5',
 
             // Shape
             'rounded-md',
@@ -23,8 +23,9 @@ export default {
 
             // States
             {
-                'hover:border-primary': !context.disabled && !props.invalid,
-                'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-500/50 dark:focus:ring-primary-400/50': !context.disabled,
+                'hover:border-black': !context.disabled && !props.invalid,
+                'focus:border-black': !context.disabled && !props.invalid,
+                'focus:outline-none focus:outline-offset-0': !context.disabled,
                 'opacity-60 select-none pointer-events-none cursor-default': context.disabled
             },
 
