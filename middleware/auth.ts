@@ -15,7 +15,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
       '/auth/login', 
       '/auth/register', 
       '/auth/email-verification',
-      '/auth/login-verification'
+      '/auth/otp-verification',
     ];
     
     if (!publicRoutes.includes(to.path) && !to.path.startsWith('/auth/email-verification')) {
@@ -27,23 +27,23 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (authStore.isAuthenticated) {
     // Redirect from auth pages if already logged in
     if (to.path.startsWith('/auth/') && to.path !== '/auth/logout') {
-      return navigateTo('/dashboard');
+      return navigateTo('/user/welcome');
     }
     
     // Admin-only routes
     if (to.path.startsWith('/admin') && !authStore.isAdmin) {
-      return navigateTo('/dashboard');
+      return navigateTo('/user/welcome');
     }
     
     // Super admin only routes
     if (to.path.startsWith('/super-admin') && !authStore.isSuperAdmin) {
-      return navigateTo('/dashboard');
+      return navigateTo('/user/welcome');
     }
     
     // Check account activation status for certain routes
-    const requiresActivation = ['/dashboard', '/profile', '/transactions'];
+    const requiresActivation = ['/user/welcome', '/dashboard', '/profile', '/transactions'];
     if (requiresActivation.includes(to.path) && !authStore.isActivated) {
-      return navigateTo('/auth/verify-email-notice');
+      return navigateTo('/auth/email-verification');
     }
   }
 });

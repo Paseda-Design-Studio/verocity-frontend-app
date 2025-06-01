@@ -5,13 +5,15 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Private keys that are exposed to the server
     apiSecret: process.env.NUXT_API_SECRET,
-    
+
     // Public keys that are exposed to the client
     public: {
-      baseURL: import.meta.env.VITE_BASE_URL || 'https://api.verocityshipping.com/api/v1',
+      baseURL:
+        import.meta.env.VITE_BASE_URL ||
+        "https://api.verocityshipping.com/api/v1",
     },
   },
-  
+
   // Auto import components
   components: true,
 
@@ -26,6 +28,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "nuxt-primevue",
     "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
     [
       "@nuxtjs/google-fonts",
       {
@@ -51,6 +54,34 @@ export default defineNuxtConfig({
     types: resolve(__dirname, "./types"),
   },
 
+  // Add Vite configuration to handle Node.js modules
+  vite: {
+    define: {
+      global: "globalThis",
+    },
+    optimizeDeps: {
+      exclude: ["stream/consumers"],
+    },
+    resolve: {
+      alias: {
+        "stream/consumers": "stream/consumers",
+      },
+    },
+  },
+
+  // Add build configuration
+  build: {
+    transpile: [],
+  },
+
+  // Add nitro configuration for better compatibility
+  nitro: {
+    experimental: {
+      wasm: true,
+    },
+    compatibilityDate: "2025-05-27",
+  },
+
   primevue: {
     options: {
       unstyled: true,
@@ -58,7 +89,19 @@ export default defineNuxtConfig({
     },
     importPT: { as: "Krobot", from: "~/presets/krobot" },
     components: {
-      include: ["InputText", "Button", "Password", "RadioButton", "Toast", "ToastService"],
+      include: [
+        "InputText",
+        "Button",
+        "Password",
+        "RadioButton",
+        "Toast",
+        "ToastService",
+        "InputOtp",
+        "Menu",
+        "Avatar",
+        "Dropdown",
+        "Textarea",
+      ],
       exclude: ["Editor", "DataTable"],
     },
   },
@@ -87,9 +130,11 @@ export default defineNuxtConfig({
             "primary-hover": "var(--primary-hover)",
             "primary-active-color": "var(--primary-active-color)",
 
-            "primary-highlight": "var(--primary)/var(--primary-highlight-opacity)",
+            "primary-highlight":
+              "var(--primary)/var(--primary-highlight-opacity)",
             "primary-highlight-inverse": "var(--primary-highlight-inverse)",
-            "primary-highlight-hover": "var(--primary)/var(--primary-highlight-hover-opacity)",
+            "primary-highlight-hover":
+              "var(--primary)/var(--primary-highlight-hover-opacity)",
 
             "primary-50": "var(--primary-50)",
             "primary-100": "var(--primary-100)",
@@ -152,4 +197,4 @@ export default defineNuxtConfig({
   routeRules: {
     "/signout": { ssr: false },
   },
-})
+});

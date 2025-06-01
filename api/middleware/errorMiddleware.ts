@@ -4,19 +4,23 @@ export default function useErrorMiddleware() {
       // Extract error message from response
       let errorMessage = 'An unexpected error occurred';
       
-      if (error.response?._data?.message) {
+      // Check for the new error structure first
+      if (error.response?._data?.status === 'error' && error.response?._data?.data?.error) {
+        errorMessage = error.response._data.data.error;
+      }
+      // Fallbacks for other error structures
+      else if (error.response?._data?.message) {
         errorMessage = error.response._data.message;
       } else if (error.response?._data?.error) {
-        errorMessage = error.response._data.error;  // This is capturing "User is already activated"
+        errorMessage = error.response._data.error;
       } else if (error.response?._data?.data?.message) {
         errorMessage = error.response._data.data.message;
       } else if (error.message) {
         errorMessage = error.message;
-      }      
+      }
       
       // Log the error
       console.error('API Error:', errorMessage, error);
-      console.error('API Error Details:', error.response._data.error);
       
       // Return a standardized error object
       return Promise.reject({

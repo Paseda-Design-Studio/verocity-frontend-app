@@ -33,5 +33,6 @@ export function useUser() {
     
     // User name helpers
     fullName: computed(() => authStore.userFullName),
+    userInitial: computed(() => authStore.userInitial),
   };
 }

@@ -4,16 +4,19 @@ export interface User {
   address: string | null;
   city: string | null;
   country: string | null;
-  customerType: 'individual' | 'business' | null;
+  customerType: "individual" | "business" | null;
   email: string;
   refID: string;
-  role: 'superadmin' | 'admin' | 'customer';
+  role: "superadmin" | "admin" | "customer";
   state: string | null;
   zipCode: string | null;
   firstName?: string;
   lastName?: string;
+  name?: string;
   businessName?: string;
   phone?: string;
+  photoUrl?: string;
+  photoRef?: string;
 }
 
 export interface LoginRequest {
@@ -21,7 +24,7 @@ export interface LoginRequest {
   password: string;
 }
 
-export interface LoginResponse {
+export interface LoginResponseData {
   message: string;
   otpReference?: string;
 }
@@ -31,12 +34,12 @@ interface BaseRegisterRequest {
   email: string;
   phone: string;
   password: string;
-  customer_type: 'individual' | 'business';
+  customer_type: "individual" | "business";
 }
 
 // Individual registration request
 export interface IndividualRegisterRequest extends BaseRegisterRequest {
-  customer_type: 'individual';
+  customer_type: "individual";
   firstname: string;
   lastname: string;
   address?: string;
@@ -48,15 +51,18 @@ export interface IndividualRegisterRequest extends BaseRegisterRequest {
 
 // Business registration request
 export interface BusinessRegisterRequest extends BaseRegisterRequest {
-  customer_type: 'business';
+  customer_type: "business";
   business_name: string;
 }
 
 // Union type for all registration requests
-export type RegisterRequest = IndividualRegisterRequest | BusinessRegisterRequest;
+export type RegisterRequest =
+  | IndividualRegisterRequest
+  | BusinessRegisterRequest;
 
-export interface RegisterResponse {
+export interface RegisterResponseData {
   message: string;
+  user: User;
 }
 
 export interface VerifyOtpRequest {
@@ -65,7 +71,7 @@ export interface VerifyOtpRequest {
   otpReference?: string;
 }
 
-export interface VerifyOtpResponse {
+export interface VerifyOtpResponseData {
   message: string;
   token: string;
   refreshToken?: string;
@@ -75,15 +81,32 @@ export interface VerifyEmailRequest {
   token: string;
 }
 
-export interface VerifyEmailResponse {
+export interface VerifyEmailResponseData {
   message: string;
   user: User;
   success: boolean;
 }
 
-export interface WhoAmIResponse {
-  data: {
-    message: string;
-    user: User;
-  }
+export interface WhoAmIResponseData {
+  message: string;
+  user: User;
+}
+
+export interface UpdatePasswordRequest {
+  current_password: string;
+  new_password: string;
+  confirmNew_password?: string;
+}
+
+export interface UpdatePasswordResponseData {
+  message: string;
+  userID: string;
+}
+
+export interface UploadProfilePictureRequest {
+  profilePicture: File;
+}
+export interface UploadProfilePictureResponseData {
+  publicId?: string;
+  uploadUrl?: string;
 }

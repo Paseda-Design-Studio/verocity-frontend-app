@@ -20,6 +20,7 @@
     "nuxt": "^3.12.2",
     "nuxt-primevue": "^3.0.0",
     "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^4.3.0",
     "scrollreveal": "^4.0.9",
     "vue": "latest"
   },

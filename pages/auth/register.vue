@@ -162,7 +162,11 @@ const handleSubmit = async () => {
     }
 
     // Use the unified register method
-    await authStore.register(registerData);
+    const response = await authStore.register(registerData);
+
+    if (import.meta.env.MODE === "development") {
+      console.log("Registration response:", response);
+    }
 
     toast.add({
       severity: "success",
@@ -182,7 +186,7 @@ const handleSubmit = async () => {
     navigateTo("/auth/login");
   } catch (error: any) {
     console.error("Registration error:", error);
-    const errorMsg = "Registration failed. Please try again.";
+    const errorMsg = error.message || "Registration failed. Please try again.";
     errorMessage.value = errorMsg;
     toast.add({
       severity: "error",

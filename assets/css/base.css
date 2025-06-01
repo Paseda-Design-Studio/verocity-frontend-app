@@ -441,4 +441,9 @@ input::placeholder {
 	.sidebar-label {
 		@apply text-sm truncate text-gray-400 font-semibold max-xl:hidden;
 	}
+	
+	.section-container {
+		@apply flex w-full max-w-6xl flex-col gap-8 p-8 md:py-12;
+	}
+	
 }

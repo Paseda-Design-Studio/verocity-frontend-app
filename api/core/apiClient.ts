@@ -12,13 +12,19 @@ export function useApiClient() {
   const loggerMiddleware = useLoggerMiddleware();
 
   // Base options for all requests
-  const getBaseOptions = () => {
+  const getBaseOptions = (data?: any) => {
+    const headers: Record<string, string> = {
+      Accept: "application/json",
+    };
+
+    // Only set Content-Type to application/json if data is not FormData
+    if (!(data instanceof FormData)) {
+      headers["Content-Type"] = "application/json";
+    }
+
     return {
       baseURL: config.public.baseURL,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      headers,
       timeout: 30000, // 30 seconds
     };
   };
@@ -36,14 +42,27 @@ export function useApiClient() {
 
   // Handle response with middleware
   const handleResponse = async <T>(response: any): Promise<T> => {
-    // Apply response middleware
-    const processedResponse = loggerMiddleware.onResponse(response);
+    console.log("Raw Response:", JSON.stringify(response, null, 2));
 
-    // Extract the data from the API response
-    const apiResponse = processedResponse._data as ApiResponse<T>;
-    console.log("API Response:", apiResponse.data);
+    // Check for the expected structure
+    if (response._data) {
+      const apiResponse = response._data as ApiResponse<T>;
 
-    return apiResponse.data;
+      if (apiResponse.status && apiResponse.data !== undefined) {
+        console.log("API Response Data:", apiResponse.data);
+        return apiResponse.data;
+      }
+    } else if (response.data) {
+      console.log("API Response Data (legacy):", JSON.stringify(response.data, null, 2));
+      return response.data as T;
+    } else {
+      console.warn("Unexpected response structure:", JSON.stringify(response, null, 2));
+      return response as T;
+    }
+
+    // Fallback for empty responses
+    console.warn("Empty response received");
+    return {} as T;
   };
 
   // Handle errors with middleware
@@ -68,7 +87,6 @@ export function useApiClient() {
     } catch (e) {
       processedError = e;
     }
-
     throw processedError;
   };
 
@@ -79,7 +97,7 @@ export function useApiClient() {
     data?: any,
     options?: any
   ): Promise<T> => {
-    const baseOptions = getBaseOptions();
+    const baseOptions = getBaseOptions(data);
 
     const fetchOptions = {
       ...baseOptions,
@@ -89,12 +107,21 @@ export function useApiClient() {
       params: method === "GET" ? data : undefined,
     };
 
+    // If options contain headers, merge them properly
+    if (options?.headers) {
+      fetchOptions.headers = {
+        ...fetchOptions.headers,
+        ...options.headers,
+      };
+    }
+
     // Apply middleware
     const processedOptions = applyRequestMiddleware(fetchOptions);
 
     try {
       // Use $fetch with the processed options
       const response = await $fetch(url, processedOptions);
+      console.log("Response from $fetch:", JSON.stringify(response, null, 2));
       return handleResponse<T>(response);
     } catch (error) {
       return handleError(error);
