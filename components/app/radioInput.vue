@@ -70,7 +70,7 @@ watch(
         ></div>
       </div>
     </div>
-    <label :for="id" class="text-sm ml-2 cursor-pointer">{{ label }}</label>
+    <label :for="id" class="text-sm ml-2 cursor-pointer text-gray-400">{{ label }}</label>
   </div>
 </template>
 

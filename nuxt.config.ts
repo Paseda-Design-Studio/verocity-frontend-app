@@ -1,29 +1,31 @@
 import { resolve } from "path";
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2025-06-29',
+  
+  // Add experimental features for better error handling
+  experimental: {
+    payloadExtraction: false, // This can help with SSR issues
+  },
+  
   runtimeConfig: {
-    // Private keys that are exposed to the server
     apiSecret: process.env.NUXT_API_SECRET,
-
-    // Public keys that are exposed to the client
     public: {
       baseURL:
         import.meta.env.VITE_BASE_URL ||
         "https://api.verocityshipping.com/api/v1",
     },
   },
-
-  // Auto import components
+  
   components: true,
-
+  
   app: {
     // layoutTransition: { name: 'slide-fade-left', mode: 'out-in' },
     // pageTransition: { name: 'slide-fade-left', mode: 'out-in' },
   },
-
+  
   devtools: { enabled: true },
-
+  
   modules: [
     "@nuxtjs/tailwindcss",
     "nuxt-primevue",
@@ -42,19 +44,18 @@ export default defineNuxtConfig({
     ],
     "@nuxt/icon",
   ],
-
+  
   css: ["~/assets/css/base.css"],
-
+  
   imports: {
-    dirs: ["stores"],
+    dirs: ["stores", "composables", "presets"],
   },
-
+  
   alias: {
     api: resolve(__dirname, "./api"),
     types: resolve(__dirname, "./types"),
   },
-
-  // Add Vite configuration to handle Node.js modules
+  
   vite: {
     define: {
       global: "globalThis",
@@ -68,20 +69,31 @@ export default defineNuxtConfig({
       },
     },
   },
-
-  // Add build configuration
+  
   build: {
     transpile: [],
   },
-
-  // Add nitro configuration for better compatibility
+  
   nitro: {
     experimental: {
       wasm: true,
     },
-    compatibilityDate: "2025-05-27",
   },
-
+  
+  // Add error handling hooks
+  // hooks: {
+  //   'render:errorMiddleware': (app) => {
+  //     app.use((error, req, res, next) => {
+  //       if (error.message?.includes('meta')) {
+  //         console.error('Route meta error:', error.message);
+  //         // Handle the error gracefully instead of crashing
+  //         return next();
+  //       }
+  //       next(error);
+  //     });
+  //   }
+  // },
+  
   primevue: {
     options: {
       unstyled: true,
@@ -91,6 +103,7 @@ export default defineNuxtConfig({
     components: {
       include: [
         "InputText",
+        "InputNumber",
         "Button",
         "Password",
         "RadioButton",
@@ -101,11 +114,21 @@ export default defineNuxtConfig({
         "Avatar",
         "Dropdown",
         "Textarea",
+        "Chart",
+        "Divider",
+        "IconField",
+        "InputIcon",
+        "InputGroup",
+        "InputGroupAddon",
+        "Stepper",
+        "StepperPanel",
+        "Dialog",
+        "Tag",
       ],
       exclude: ["Editor", "DataTable"],
     },
   },
-
+  
   tailwindcss: {
     config: {
       content: ["presets/**/*.{js,vue,ts}"],
@@ -129,13 +152,11 @@ export default defineNuxtConfig({
             "primary-inverse": "var(--primary-inverse)",
             "primary-hover": "var(--primary-hover)",
             "primary-active-color": "var(--primary-active-color)",
-
             "primary-highlight":
               "var(--primary)/var(--primary-highlight-opacity)",
             "primary-highlight-inverse": "var(--primary-highlight-inverse)",
             "primary-highlight-hover":
               "var(--primary)/var(--primary-highlight-hover-opacity)",
-
             "primary-50": "var(--primary-50)",
             "primary-100": "var(--primary-100)",
             "primary-200": "var(--primary-200)",
@@ -146,10 +167,8 @@ export default defineNuxtConfig({
             "primary-700": "var(--primary-700)",
             "primary-800": "var(--primary-800)",
             "primary-900": "var(--primary-900)",
-            "primary-950": "var(--primary-950)", // Fixed extra parenthesis
-
+            "primary-950": "var(--primary-950)",
             "text-color": "#49494B",
-
             gray: "var(--gray)",
             "gray-50": "var(--gray-50)",
             "gray-100": "var(--gray-100)",
@@ -161,7 +180,6 @@ export default defineNuxtConfig({
             "gray-700": "var(--gray-700)",
             "gray-800": "var(--gray-800)",
             "gray-900": "var(--gray-900)",
-
             secondary: "var(--secondary)",
             "secondary-50": "var(--secondary-50)",
             "secondary-100": "var(--secondary-100)",
@@ -173,8 +191,7 @@ export default defineNuxtConfig({
             "secondary-700": "var(--secondary-700)",
             "secondary-800": "var(--secondary-800)",
             "secondary-900": "var(--secondary-900)",
-            "secondary-950": "var(--secondary-950)", // Fixed extra parenthesis
-
+            "secondary-950": "var(--secondary-950)",
             "surface-0": "rgb(var(--surface-0))",
             "surface-50": "rgb(var(--surface-50))",
             "surface-100": "rgb(var(--surface-100))",
@@ -192,7 +209,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  
   // ssr: false,
   routeRules: {
     "/signout": { ssr: false },

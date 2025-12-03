@@ -54,7 +54,6 @@
 </template>
 
 <script setup lang="ts">
-	import { ref, watch, defineProps, defineEmits } from 'vue';
 	import {
 		Listbox,
 		ListboxButton,

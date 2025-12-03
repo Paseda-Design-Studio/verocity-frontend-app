@@ -23,27 +23,27 @@ export const carouselResponsiveOptions = [
 
 export const sidebarLinks = [
 	{
-		imgURL: '/icons/dashboard.svg',
+		icon: 'dashboard', 
 		route: '/admin/dashboard',
 		label: 'Dashboard',
 	},
 	{
-		imgURL: '/icons/tracking.svg',
+		icon: 'lorry',
 		route: '/admin/tracking',
 		label: 'Tracking',
 	},
 	{
-		imgURL: '/icons/shipment.svg',
+		icon: 'management',
 		route: '/admin/shipment',
 		label: 'Shipment Management',
 	},
 	{
-		imgURL: '/icons/customer.svg',
+		icon: 'people', 
 		route: '/admin/customers',
 		label: 'Customers',
 	},
 	{
-		imgURL: '/icons/setting.svg',
+		icon: 'setting',
 		route: '/admin/settings',
 		label: 'Settings',
 	},
@@ -78,7 +78,6 @@ export const formatAmount = (amount: number) => {
 	return formatter.format(amount);
 };
 
-
 // capitalize first letter of a string
 export const capitalizeFirstLetter = (str: string) => {
 	return str.charAt(0).toUpperCase() + str.slice(1);
@@ -90,7 +89,8 @@ export interface Country {
   dial_code: string;   // e.g. "+233"
   flag: string;        // e.g. "🇬🇭"
   name: string;        // e.g. "Ghana"
-  locations?: Location[];    // Optional array of states for the country
+  location_type?: string; // e.g. "regions" or "states"
+  locations?: Location[];    // Optional array of states/regions for the country
 }
 
 // For the API response structure
@@ -98,8 +98,17 @@ export interface CountriesResponse {
  countries: Country[]; // Array of Country objects	
 }
 
-// For a single state
+// For a single state/region
 export interface Location {
-  code: string;        // e.g. "AA"
-  name: string;        // e.g. "Greater Accra"
+  code: string;        // e.g. "Greater Accra Region"
+  name: string;        // e.g. "Greater Accra Region"
+  type?: string;       // e.g. "region" or "state"
+  cities?: string[];   // Optional array of cities in this location
+}
+
+// For cities API response
+export interface CitiesResponse {
+    cities: string[];
+    country_code: string;
+    location: string;
 }
