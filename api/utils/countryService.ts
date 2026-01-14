@@ -1,5 +1,5 @@
 import { useCountryRepository } from "./countryRepository";
-import type { CountriesResponse } from "~/utils/helper";
+import type { CountriesResponse, CitiesResponse } from "~/utils/helper";
 
 export function useCountryService() {
   const countryRepository = useCountryRepository();
@@ -12,8 +12,16 @@ export function useCountryService() {
     return await countryRepository.fetchOperationalCountries();
   };
 
+  const getCitiesByCountryAndLocation = async (
+    countryCode: string,
+    locationCode: string
+  ): Promise<CitiesResponse> => {
+    return await countryRepository.fetchCitiesByCountryAndLocation(countryCode, locationCode);
+  };
+
   return {
     getCountries,
     getOperationalCountries,
+    getCitiesByCountryAndLocation,
   };
 }

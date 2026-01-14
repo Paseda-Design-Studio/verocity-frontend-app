@@ -22,7 +22,10 @@ const fetchIcon = async () => {
     ]();
 
     // Handle both string and object with default property
-    const rawIcon = typeof imported === "string" ? imported : imported.default;
+    const rawIcon =
+      typeof imported === "string"
+        ? imported
+        : (imported as { default: string }).default;
 
     if (rawIcon && typeof rawIcon === "string" && rawIcon.includes("stroke")) {
       hasStroke.value = true;
@@ -55,8 +58,12 @@ watch(
 
 <template>
   <span
-    class="app-icon w-4 h-4"
-    :class="{ fill: filled, stroke: hasStroke && !filled }"
+    class="app-icon"
+    :class="{ 
+      fill: filled, 
+      stroke: hasStroke && !filled,
+      'w-4 h-4': true 
+    }"
     v-html="icon"
   />
 </template>
@@ -64,13 +71,36 @@ watch(
 <style lang="scss" scoped>
 .app-icon {
   line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  &.fill * {
+  &.fill :deep(svg),
+  &.fill :deep(svg *) {
     fill: currentColor !important;
+    stroke: none !important;
   }
 
-  &.stroke * {
+  &.stroke :deep(svg),
+  &.stroke :deep(svg *) {
     stroke: currentColor !important;
+    fill: none !important;
+  }
+
+  // Default behavior - inherit color
+  :deep(svg) {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+  }
+
+  :deep(svg path),
+  :deep(svg circle),
+  :deep(svg rect),
+  :deep(svg line),
+  :deep(svg polyline),
+  :deep(svg polygon) {
+    color: inherit;
   }
 }
 </style>

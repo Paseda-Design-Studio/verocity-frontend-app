@@ -72,6 +72,7 @@ export default {
     panel: {
         class: [
             'absolute top-0 left-0',
+            'z-[11000]', // <-- Add this line for high z-index
             'border-0 dark:border',
             'rounded-md',
             'shadow-md',

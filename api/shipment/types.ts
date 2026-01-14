@@ -29,7 +29,7 @@ export interface ShipmentItem {
   sku: string;
   image_url: string;
   image_ref: string;
-  version: number;
+  version?: number;
 }
 
 /** Payment details for a shipment */
@@ -77,7 +77,7 @@ export interface CreateShipmentItemPayload {
   sku: string;
   image_url: string;
   image_ref: string;
-  version: number;
+  version?: number;
 }
 
 /** Payload for creating a payment */
@@ -99,7 +99,66 @@ export interface CreateShipmentPayload {
   payment: CreatePaymentPayload;
 }
 
-/** Shipment quote details */
+/** Route information for shipment cost */
+export interface ShipmentRoute {
+  origin: string;
+  destination: string;
+}
+
+/** Cost breakdown details */
+export interface CostBreakdown {
+  base_shipping_cost: string;
+  fragile_surcharge: string;
+  insurance_cost: string;
+  tax_amount: string;
+  tax_rate: string;
+  subtotal: string;
+  total: string;
+  currency: string;
+  total_weight: number;
+  total_value: number;
+  has_fragile_items: boolean;
+  route: ShipmentRoute;
+  cost_hash: string;
+}
+
+/** Shipment cost data */
+export interface ShipmentCostData {
+  cost_breakdown: CostBreakdown;
+  message: string;
+}
+
+/** API response for shipment cost calculation */
+export interface ShipmentCostResponse {
+  data: ShipmentCostData;
+  status: string;
+}
+
+/** Payment info for cost calculation */
+export interface CostCalculationPayment {
+  method: string;
+  currency: string;
+  insurance_requested: boolean;
+}
+
+/** Payload for calculating shipment cost */
+export interface ShipmentCostPayload {
+  sender: Person;
+  recipient: Person;
+  items: ShipmentItem[];
+  payment: CostCalculationPayment;
+}
+
+/** Image upload data */
+export interface ImageUploadData {
+  publicId: string;
+  uploadUrl: string;
+}
+
+/** API response for image upload - follows standard ApiResponse format */
+export type ImageUploadResponse = ApiResponse<ImageUploadData>;
+
+/** Shipment quote details (keeping for backward compatibility) */
 export interface ShipmentQuote {
   currency: string;
   destination: string;
@@ -114,7 +173,7 @@ export interface ShipmentQuote {
   weight_unit: string;
 }
 
-/** API response for a shipment quote estimate */
+/** API response for a shipment quote estimate (keeping for backward compatibility) */
 export interface ShipmentQuoteEstimateResponse {
   quote: ShipmentQuote;
 }

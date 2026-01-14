@@ -29,68 +29,53 @@ Map this props to a type of ARRAY
 	};
 	const setChartOptions = () => {
 		return {
-			// maintainAspectRatio: false,
-			aspectRatio: 1.5,
+			maintainAspectRatio: false, // Add this
+			aspectRatio: undefined,
+			responsive: true,
+			scales:{
+				
+			},
+			
 			plugins: {
 				customCanvasBackgroundColor: {
 					color: 'lightGreen',
+					
 				},
+				tooltip: {
+					enabled: true,
+					mode: 'index',
+					intersect: false,
+				},
+				
 
 				legend: {
 					display: false,
-					position: 'top',
-					align: 'center',
-					padding: 10,
-					labels: {
-						color: '#1B1C1E',
-						boxWidth: 5,
-						borderRadius: '50%',
-						usePointStyle: true,
-						padding: 28,
-					},
 				},
+				
 			},
-			// Adding the custom plugin to display text in the center of the doughnut
+			hover:{},
+			// reduce the width of the bar
+			barThickness: 24,
+			borderRadius: 5,
+			
 		};
-
-		// return {
-		// 	plugins: {
-		// 		legend: {
-		// 			labels: {
-		// 				color: '#fff',
-		// 			},
-		// 		},
-		// 	},
-		// 	scales: {
-		// 		x: {
-		// 			ticks: {
-		// 				color: textColorSecondary,
-		// 			},
-		// 			grid: {
-		// 				color: surfaceBorder,
-		// 			},
-		// 		},
-		// 		y: {
-		// 			beginAtZero: true,
-		// 			ticks: {
-		// 				color: textColorSecondary,
-		// 			},
-		// 			grid: {
-		// 				color: surfaceBorder,
-		// 			},
-		// 		},
-		// 	},
-		// };
 	};
 </script>
 
 <template>
-	<Chart
-		type="bar"
-		:data="barChartData"
-		:options="barChartOptions"
-		class="w-full"
-	/>
+	<div class="chart-wrapper">
+		<Chart
+			type="bar"
+			:data="barChartData"
+			:options="barChartOptions"
+			class="w-full"
+		/>
+	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.chart-wrapper {
+    height: 180px;
+    width: 100%;
+}
+</style>

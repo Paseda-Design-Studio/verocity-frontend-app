@@ -1,75 +1,108 @@
-<template>
-	<div
-		class="inline-flex items-center px-2 py-1 rounded-full text-sm font-medium border"
-		:class="[
-			statusColor,
-			statusTextColor,
-			statusBorderColor,
-			`bg-${status.toLowerCase()}-100`,
-			`text-${status.toLowerCase()}-600`,
-		]"
-	>
-		<slot></slot>
-	</div>
-</template>
-
 <script setup lang="ts">
-	import { computed } from 'vue';
+  interface Props {
+    status: string;
+    variant?: 'filled' | 'outlined' | 'soft';
+    size?: 'sm' | 'md' | 'lg';
+  }
 
-	interface Props {
-		status: string | any;
-	}
+  const props = withDefaults(defineProps<Props>(), {
+    variant: 'soft',
+    size: 'md'
+  });
 
-	const props = defineProps<Props>();
+  // Status configurations with your exact colors
+  const statusConfig = {
+    'pending': {
+      color: '#A9A9A9',
+      label: 'Pending'
+    },
+    'out of delivery': {
+      color: '#007BFF',
+      label: 'Out of Delivery'
+    },
+    'in transit': {
+      color: '#FFA500',
+      label: 'In Transit'
+    },
+    'delivered': {
+      color: '#28A745',
+      label: 'Delivered'
+    },
+    'delayed': {
+      color: '#EC8282',
+      label: 'Delayed'
+    },
+    'cancelled': {
+      color: '#FF0000',
+      label: 'Cancelled'
+    }
 
-	const statusColor = computed(() => {
-		switch (props.status) {
-			case 'Delivered':
-				return 'bg-green-100';
-			case 'In Transit':
-				return 'bg-yellow-100';
-			case 'Out for delivery':
-				return 'bg-blue-100';
-			case 'Pending':
-				return 'bg-gray-100';
-      case 'Cancelled':
-        return 'bg-red-100';
-			default:
-				return '';
-		}
-	});
+    // Statuses for user management
+    , 'active': {
+      color: '#28A745',
+      label: 'Active'
+    },
+    'inactive': {
+      color: '#A9A9A9',
+      label: 'Inactive'
+    },
+    'suspended': {
+      color: '#FF0000',
+      label: 'Suspended'
+    },
 
-	const statusTextColor = computed(() => {
-		switch (props.status) {
-			case 'Delivered':
-				return 'text-green-600';
-			case 'In Transit':
-				return 'text-yellow-600';
-			case 'Out for delivery':
-				return 'text-blue-600';
-			case 'Pending':
-				return 'text-gray-900';
-			case 'Cancelled':
-				return 'text-red-600';
-			default:
-				return '';
-		}
-	});
+    // statuses for payment management
+    'paid': {
+      color: '#28A745',
+      label: 'Paid'
+    },
+  };
 
-	const statusBorderColor = computed(() => {
-		switch (props.status) {
-			case 'Delivered':
-				return 'border-green-600';
-			case 'In Transit':
-				return 'border-yellow-600';
-			case 'Out for delivery':
-				return 'border-blue-600';
-			case 'Pending':
-				return 'border-gray-200';
-			case 'Cancelled':
-				return 'border-red-600';
-			default:
-				return '';
-		}
-	});
+  const normalizedStatus = computed(() => props.status.toLowerCase());
+  const config = computed(() => statusConfig[normalizedStatus.value as keyof typeof statusConfig] || {
+    color: '#6B7280',
+    label: props.status
+  });
+
+  const chipClasses = computed(() => {
+    const base = 'inline-flex items-center justify-center font-medium rounded-full whitespace-nowrap';
+
+    const sizes = {
+      sm: 'px-2 py-0.5 text-xs',
+      md: 'px-3 py-1 text-sm',
+      lg: 'px-4 py-1.5 text-base'
+    };
+
+    return `${base} ${sizes[props.size]}`;
+  });
+
+  const chipStyles = computed(() => {
+    const color = config.value.color;
+
+    if (props.variant === 'filled') {
+      return {
+        backgroundColor: color,
+        color: '#ffffff',
+        border: `1px solid ${color}`
+      };
+    } else if (props.variant === 'outlined') {
+      return {
+        backgroundColor: 'transparent',
+        color: color,
+        border: `1px solid ${color}`
+      };
+    } else { // soft
+      return {
+        backgroundColor: `${color}20`, // 20% opacity
+        color: color,
+        border: `1px solid ${color}40` // 40% opacity for border
+      };
+    }
+  });
 </script>
+
+<template>
+  <span :class="chipClasses" :style="chipStyles">
+    {{ config.label }}
+  </span>
+</template>

@@ -44,5 +44,44 @@ declare global {
         description: string;
         backgroundImage: string;
     }
+    
+    
+    /**
+     * @description This type defines the available shipping item categories.
+     * @type ShippingCategories
+     * @path types/ComponentTypes.d.ts
+     * @note It is globally declared to ensure type safety for shipping item categories.
+     */
+    type ShippingCategories = 
+        | "Electronics"
+        | "Clothing"
+        | "Documents"
+        | "Food"
+        | "Furniture"
+        | "Automobile Parts"
+        | "Books"
+        | "Toys"
+        | "Medical Supplies"
+        | "Jewelry"
+        | "Cosmetics"
+        | "Sports Equipment"
+        | "Machinery"
+        | "Musical Instruments"
+        | "Art & Antiques"
+        | "Shoes"
+        | "Bags & Luggage"
+        | "Pet Supplies"
+        | "Home Appliances"
+        | "Gardening Tools"
+        | "Other";
 
+    /**
+     * @description This constant array contains all available shipping categories.
+     * @constant SHIPPING_CATEGORIES
+     * @path types/ComponentTypes.d.ts
+     * @note It is globally declared for use in dropdowns and validation.
+     */
+    const SHIPPING_CATEGORIES: readonly ShippingCategories[];
 }
+
+
